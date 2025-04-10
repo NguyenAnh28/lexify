@@ -1,4 +1,8 @@
-# Python-related
+# VSCode 
 venv/
-
 .vscode
+
+# Backend
+milvus_demo.db
+
+
