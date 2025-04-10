@@ -1,6 +1,6 @@
 import os
 import json
-from pymilvus import MilvusClient, DataType
+from pymilvus import Collection, FieldSchema, CollectionSchema, DataType, MilvusClient
 from tqdm import tqdm
 import textwrap
 from sentence_transformers import SentenceTransformer
@@ -11,12 +11,10 @@ DIMENSION = 384  # Match with model output
 
 # Milvus collection
 COLLECTION_NAME = "book_search"
-BATCH_SIZE = 1000
+BATCH_SIZE = 550
 
 # Connect to Milvus 
 client = MilvusClient("./milvus_demo.db")
-if client.has_collection(COLLECTION_NAME):
-    client.drop_collection(COLLECTION_NAME)
 
 # Setup schema
 schema = MilvusClient.create_schema(auto_id=True, enable_dynamic_field=False)
@@ -29,6 +27,17 @@ schema.add_field(field_name="description", datatype=DataType.VARCHAR, max_length
 schema.add_field(field_name="embedding", datatype=DataType.FLOAT_VECTOR, dim=DIMENSION)
 
 client.create_collection(collection_name=COLLECTION_NAME, schema=schema)
+
+
+# Prepare index parameters
+index_params = client.prepare_index_params()
+# Add index
+index_params.add_index(field_name="embedding", metric_type="IP", index_type="AUTOINDEX", params={})
+# Create index
+client.create_index(collection_name=COLLECTION_NAME, index_params=index_params)
+# Load collection
+client.load_collection(collection_name=COLLECTION_NAME)
+
 
 # Load book data
 with open('data.json', 'r') as f:
@@ -85,5 +94,5 @@ def query(query, top_k=5):
             print(textwrap.fill(description, width=88))
             print()
 
-my_query = ("book about a fluffy animal", 'year < 2019')
+my_query = ("gay sex", 'year < 2024')
 query(my_query)
