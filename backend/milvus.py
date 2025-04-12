@@ -68,12 +68,11 @@ for i in tqdm(range(0, len(book_data))):
 
 # Search function
 def query(query, top_k=5):
-    text, expr = query
+    text = query
 
     res = client.search(
         collection_name=COLLECTION_NAME,
         data=emb_texts([text]),
-        filter=expr,
         limit=top_k,
         output_fields=["title", "author", "year", "description"],
         search_params={
@@ -82,7 +81,7 @@ def query(query, top_k=5):
         },
     )
 
-    print("Description:", text, "Expression:", expr)
+    print("Description:", text)
 
     for hit_group in res:
         print("Results:")
@@ -94,5 +93,5 @@ def query(query, top_k=5):
             print(textwrap.fill(description, width=88))
             print()
 
-my_query = ("gay sex", 'year < 2024')
+my_query = ("gay sex")
 query(my_query)
