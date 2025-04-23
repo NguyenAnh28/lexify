@@ -93,5 +93,5 @@ def query(query, top_k=5):
             print(textwrap.fill(description, width=88))
             print()
 
-my_query = ("gay sex")
+my_query = input("What type of book are you in the mood for? ")
 query(my_query)
