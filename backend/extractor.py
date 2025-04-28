@@ -2,7 +2,7 @@ from yake import KeywordExtractor
 from sentence_transformers import SentenceTransformer, util
 import language_tool_python
 
-model = SentenceTransformer('all-MiniLM-L6-v2')
+model = SentenceTransformer('paraphrase-MiniLM-L6-v2')
 tool = language_tool_python.LanguageTool('en-US')
 
 genres = [
@@ -21,12 +21,13 @@ def get_relevant_keywords(user_input, threshold=0.6):
 
     kw_extractor = KeywordExtractor(lan="en", n=1)
     raw_keywords = [kw for kw, _ in kw_extractor.extract_keywords(corrected_input)]
-    print(raw_keywords)
+    print("Extracted Keywords:", raw_keywords)
 
     genre_embeddings = model.encode(genres, convert_to_tensor=True)
     keyword_embeddings = model.encode(raw_keywords, convert_to_tensor=True)
 
     relevant = []
+    
     for i, keyword in enumerate(raw_keywords):
         score = util.cos_sim(keyword_embeddings[i], genre_embeddings).max().item()
         print(score)

@@ -6,7 +6,7 @@ import textwrap
 from sentence_transformers import SentenceTransformer
 
 # Model set up
-model = SentenceTransformer('all-MiniLM-L6-v2')  # Fast and lightweight
+model = SentenceTransformer('paraphrase-MiniLM-L6-v2')  # Fast and lightweight
 DIMENSION = 384  # Match with model output
 
 # Milvus collection
