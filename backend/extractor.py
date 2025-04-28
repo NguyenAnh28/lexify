@@ -5,7 +5,7 @@ import language_tool_python
 model = SentenceTransformer('all-MiniLM-L6-v2')
 tool = language_tool_python.LanguageTool('en-US')
 
-GENRES = [
+genres = [
     "science fiction", "fiction", "novel", "narrative", "memoir", "fantasy", "romance", "thriller", "mystery",
     "adventure", "history", "non-fiction", "self-help", "young adult", "poetry", "biography", "fairy tale", "self-help",
     "horror", "essay", "comedy", "gothic", "western", "detective", "comics", "autobiography", "drama", "children"
@@ -15,23 +15,26 @@ def correct_grammar(text):
     corrected_text = language_tool_python.utils.correct(text, matches)
     return corrected_text
 
-def get_relevant_keywords(user_input, threshold=0.6, max_keywords=5):
+def get_relevant_keywords(user_input, threshold=0.6):
     corrected_input = correct_grammar(user_input)
     print(f"Corrected: {corrected_input}")
 
-    kw_extractor = KeywordExtractor(lan="en", n=1, top=max_keywords)
+    kw_extractor = KeywordExtractor(lan="en", n=1)
     raw_keywords = [kw for kw, _ in kw_extractor.extract_keywords(corrected_input)]
+    print(raw_keywords)
 
-    genre_embeddings = model.encode(GENRES, convert_to_tensor=True)
+    genre_embeddings = model.encode(genres, convert_to_tensor=True)
     keyword_embeddings = model.encode(raw_keywords, convert_to_tensor=True)
 
     relevant = []
     for i, keyword in enumerate(raw_keywords):
         score = util.cos_sim(keyword_embeddings[i], genre_embeddings).max().item()
+        print(score)
         if score > threshold:
             relevant.append(keyword)
-    
+
     return relevant
+
 
 user_input = input("What are you interested in reading today? ")
 print(get_relevant_keywords(user_input))
