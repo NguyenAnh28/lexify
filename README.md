@@ -21,13 +21,13 @@ Why VectorShelf?
 Unlike traditional search engines, VectorShelf focuses on your personal reading journey, helping you discover books in a more organic, meaningful way — not just through keywords, but through connection, curation, and growth.
 
 Technologies
-Frontend: React.js
+Frontend: React.js, Figma
 
-Backend: FastAPI (Python)
+Backend: FastAPI (Python), Google Books API
 
-Database: PostgreSQL
+Database: 
 
-Vector Database: Milvus + Attu
+Vector Database: Milvus
 
 Embeddings: Sentence Transformers
 
