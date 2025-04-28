@@ -1,4 +1,4 @@
-# vectorshelf
+# VectorShelf
 
 VectorShelf
 Discover, track, and connect with the books that shape your world.
