@@ -1,6 +1,5 @@
 # VectorShelf
 
-VectorShelf
 Discover, track, and connect with the books that shape your world.
 
 VectorShelf is a unique platform designed to transform the way you explore and organize books. With intuitive tracking, personalized exploration, and a simple user experience, VectorShelf helps readers stay engaged, build meaningful reading journeys, and find their next great book effortlessly.
