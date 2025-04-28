@@ -6,8 +6,9 @@ model = SentenceTransformer('all-MiniLM-L6-v2')
 tool = language_tool_python.LanguageTool('en-US')
 
 GENRES = [
-    "science fiction", "fantasy", "romance", "thriller", "mystery",
-    "adventure", "history", "non-fiction", "self-help", "young adult"
+    "science fiction", "fiction", "novel", "narrative", "memoir", "fantasy", "romance", "thriller", "mystery",
+    "adventure", "history", "non-fiction", "self-help", "young adult", "poetry", "biography", "fairy tale", "self-help",
+    "horror", "essay", "comedy", "gothic", "western", "detective", "comics", "autobiography", "drama", "children"
 ]
 def correct_grammar(text):
     matches = tool.check(text)
