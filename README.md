@@ -20,6 +20,8 @@ Our early-stage AI model extracts keywords to recommend relevant genres and book
 Why VectorShelf?
 Unlike traditional search engines, VectorShelf focuses on your personal reading journey, helping you discover books in a more organic, meaningful way — not just through keywords, but through connection, curation, and growth.
 
+With the Reading Journey Tracking feature coming up, we're confident that our website will be a favourite amongst readers around the world!
+
 Technologies
 Frontend: React.js, Figma
 
