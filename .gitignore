@@ -6,3 +6,4 @@ venv/
 milvus_demo.db
 
 
+node_modules
