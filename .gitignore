@@ -7,3 +7,5 @@ milvus_demo.db
 
 
 node_modules
+
+.env
