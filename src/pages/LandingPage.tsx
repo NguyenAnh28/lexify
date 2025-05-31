@@ -59,7 +59,7 @@ const LandingPage = () => {
               transition={{ duration: 0.8 }}
               className="mb-6"
             >
-              <span className="inline-flex items-center px-3 py-1 rounded-full text-sm font-medium tracking-wide bg-slate-800/50 text-blue-400 backdrop-blur-sm border border-slate-700/50 mb-4">
+              <span className="inline-flex items-center px-4 py-1.5 rounded-full text-sm font-medium tracking-wide bg-slate-800/50 text-blue-400 backdrop-blur-sm border border-slate-700/50 mb-4">
                 <Sparkles className="w-4 h-4 mr-2" />
                 Discover Your Next Great Read
               </span>
@@ -93,14 +93,14 @@ const LandingPage = () => {
             >
               <Link
                 to="/search"
-                className="inline-flex items-center px-6 py-3 rounded-lg bg-gradient-to-r from-blue-500 to-purple-500 text-white font-medium hover:opacity-90 transition-all duration-200 shadow-lg hover:shadow-blue-500/25"
+                className="inline-flex items-center px-6 py-3 rounded-full bg-gradient-to-r from-blue-500 to-purple-500 text-white font-medium hover:opacity-90 transition-all duration-200 shadow-lg hover:shadow-blue-500/25 hover:scale-[1.02]"
               >
                 Start Exploring
                 <ArrowRight className="ml-2 w-5 h-5" />
               </Link>
               <Link
                 to="/auth"
-                className="inline-flex items-center px-6 py-3 rounded-lg bg-slate-800/50 backdrop-blur-sm border border-slate-700/50 text-white font-medium hover:bg-slate-800/70 transition-all duration-200"
+                className="inline-flex items-center px-6 py-3 rounded-full bg-slate-800/50 backdrop-blur-sm text-white font-medium hover:bg-slate-800/70 transition-all duration-200 hover:scale-[1.02]"
               >
                 Create Account
               </Link>
@@ -182,7 +182,7 @@ const LandingPage = () => {
             </p>
             <Link
               to="/auth"
-              className="inline-flex items-center px-8 py-4 rounded-lg bg-gradient-to-r from-blue-500 to-purple-500 text-white font-medium tracking-wide hover:opacity-90 transition-all duration-200 shadow-lg hover:shadow-blue-500/25"
+              className="inline-flex items-center px-8 py-4 rounded-full bg-gradient-to-r from-blue-500 to-purple-500 text-white font-medium tracking-wide hover:opacity-90 transition-all duration-200 shadow-lg hover:shadow-blue-500/25 hover:scale-[1.02]"
             >
               Get Started Now
               <ArrowRight className="ml-2 w-5 h-5" />
