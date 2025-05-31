@@ -59,7 +59,7 @@ const LandingPage = () => {
               transition={{ duration: 0.8 }}
               className="mb-6"
             >
-              <span className="inline-flex items-center px-3 py-1 rounded-full text-sm font-medium bg-slate-800/50 text-blue-400 backdrop-blur-sm border border-slate-700/50 mb-4">
+              <span className="inline-flex items-center px-3 py-1 rounded-full text-sm font-medium tracking-wide bg-slate-800/50 text-blue-400 backdrop-blur-sm border border-slate-700/50 mb-4">
                 <Sparkles className="w-4 h-4 mr-2" />
                 Discover Your Next Great Read
               </span>
@@ -69,7 +69,7 @@ const LandingPage = () => {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, delay: 0.2 }}
-              className="text-5xl md:text-7xl font-bold mb-8 bg-clip-text text-transparent bg-gradient-to-r from-blue-400 via-purple-400 to-green-400 leading-[1.3] md:leading-[1.2] py-1"
+              className="text-5xl md:text-7xl font-bold font-display mb-8 bg-clip-text text-transparent bg-gradient-to-r from-blue-400 via-purple-400 to-green-400 leading-[1.3] md:leading-[1.2] py-1 tracking-super-tight"
             >
               Your Books, Reimagined
             </motion.h1>
@@ -78,7 +78,7 @@ const LandingPage = () => {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, delay: 0.4 }}
-              className="text-xl text-slate-300 mb-8 max-w-2xl mx-auto"
+              className="text-xl text-slate-300 mb-8 max-w-2xl mx-auto font-light tracking-wide leading-relaxed"
             >
               Transform your reading experience with VectorShelf. Discover,
               collect, and organize your books in a beautiful digital space
@@ -119,13 +119,13 @@ const LandingPage = () => {
             transition={{ duration: 0.8 }}
             className="text-center mb-20"
           >
-            <h2 className="text-4xl md:text-5xl font-bold mb-8 leading-[1.3] md:leading-[1.2]">
+            <h2 className="text-4xl md:text-5xl font-bold font-display mb-8 leading-[1.3] md:leading-[1.2] tracking-super-tight">
               Everything You Need
               <span className="block text-transparent bg-clip-text bg-gradient-to-r from-blue-400 via-purple-400 to-green-400 mt-1 py-1">
                 For Your Reading Journey
               </span>
             </h2>
-            <p className="text-xl text-slate-400 max-w-2xl mx-auto">
+            <p className="text-xl text-slate-400 max-w-2xl mx-auto font-light tracking-wide leading-relaxed">
               Discover powerful features designed to enhance your reading
               experience and book collection management.
             </p>
@@ -146,8 +146,10 @@ const LandingPage = () => {
                   <div className="mb-6 inline-flex items-center justify-center w-12 h-12 rounded-xl bg-slate-800">
                     {feature.icon}
                   </div>
-                  <h3 className="text-xl font-bold mb-4">{feature.title}</h3>
-                  <p className="text-slate-400 flex-grow">
+                  <h3 className="text-xl font-bold font-display mb-4 tracking-super-tight">
+                    {feature.title}
+                  </h3>
+                  <p className="text-slate-400 flex-grow font-light tracking-wide leading-relaxed">
                     {feature.description}
                   </p>
                 </div>
@@ -168,19 +170,19 @@ const LandingPage = () => {
             transition={{ duration: 0.8 }}
             className="max-w-4xl mx-auto text-center"
           >
-            <h2 className="text-4xl md:text-5xl font-bold mb-8 leading-[1.3] md:leading-[1.2]">
+            <h2 className="text-4xl md:text-5xl font-bold font-display mb-8 leading-[1.3] md:leading-[1.2] tracking-super-tight">
               Ready to Transform Your
               <span className="block text-transparent bg-clip-text bg-gradient-to-r from-blue-400 via-purple-400 to-green-400 mt-1 py-1">
                 Reading Experience?
               </span>
             </h2>
-            <p className="text-xl text-slate-300 mb-8">
+            <p className="text-xl text-slate-300 mb-8 font-light tracking-wide leading-relaxed">
               Join thousands of readers who have already discovered the future
               of digital bookshelves.
             </p>
             <Link
               to="/auth"
-              className="inline-flex items-center px-8 py-4 rounded-lg bg-gradient-to-r from-blue-500 to-purple-500 text-white font-medium hover:opacity-90 transition-all duration-200 shadow-lg hover:shadow-blue-500/25"
+              className="inline-flex items-center px-8 py-4 rounded-lg bg-gradient-to-r from-blue-500 to-purple-500 text-white font-medium tracking-wide hover:opacity-90 transition-all duration-200 shadow-lg hover:shadow-blue-500/25"
             >
               Get Started Now
               <ArrowRight className="ml-2 w-5 h-5" />

@@ -62,10 +62,14 @@ const Header = () => {
             transition={{ duration: 0.5, delay: 0.1 }}
             className="flex flex-col"
           >
-            <span className="text-lg font-semibold tracking-wide text-white">
-              VectorShelf
-            </span>
-            <span className="text-slate-400 text-xs">Digital Library</span>
+            <div className="flex flex-col">
+              <span className="text-lg font-semibold tracking-super-tight font-display text-white">
+                VectorShelf
+              </span>
+              <span className="text-xs font-medium tracking-super-wide text-slate-400">
+                Digital Library
+              </span>
+            </div>
           </motion.div>
         </Link>
 
@@ -129,7 +133,7 @@ const Header = () => {
           ) : (
             <Link
               to="/auth"
-              className="flex items-center space-x-2 px-4 py-2 rounded-lg bg-gradient-to-r from-blue-500 to-purple-500 text-white font-medium shadow-lg hover:shadow-blue-500/25 hover:scale-[1.02] transition-all duration-200"
+              className="flex items-center space-x-2 px-4 py-2 rounded-lg bg-gradient-to-r from-blue-500 to-purple-500 text-white text-sm font-medium tracking-wide hover:opacity-90 transition-all duration-200 shadow-lg hover:shadow-blue-500/25 hover:scale-[1.02]"
             >
               <LogIn size={18} />
               <span>Sign In</span>
