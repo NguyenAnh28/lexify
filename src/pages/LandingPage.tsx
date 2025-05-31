@@ -35,12 +35,13 @@ const LandingPage = () => {
   ];
 
   return (
-    <div className="relative min-h-screen bg-gradient-to-br from-slate-950 via-indigo-950/90 to-slate-900 text-white overflow-hidden">
+    <div className="relative min-h-screen bg-[radial-gradient(120%_120%_at_30%_-10%,#4A5569_0%,#1A1F2E_25%,#000000_65%)] text-white overflow-hidden">
       {/* Noise texture overlay */}
-      <div className="absolute inset-0 bg-[url('/noise.png')] opacity-[0.02] mix-blend-overlay pointer-events-none"></div>
+      <div className="absolute inset-0 bg-[url('/noise.png')] opacity-[0.05] mix-blend-overlay pointer-events-none"></div>
 
-      {/* Radial gradient overlay */}
-      <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,rgba(30,41,59,0)_0%,rgba(15,23,42,0.8)_100%)] pointer-events-none"></div>
+      {/* Gradient overlays for depth */}
+      <div className="absolute inset-0 bg-gradient-to-b from-transparent via-black/40 to-black pointer-events-none"></div>
+      <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_30%_-10%,rgba(74,85,105,0.15)_0%,rgba(0,0,0,0.4)_100%)] pointer-events-none"></div>
 
       {/* Hero Section */}
       <div
@@ -49,9 +50,9 @@ const LandingPage = () => {
       >
         {/* Animated background gradient */}
         <div className="absolute inset-0 w-full h-full">
-          <div className="absolute top-0 -left-4 w-72 h-72 bg-indigo-500/20 rounded-full mix-blend-multiply filter blur-xl opacity-20 animate-blob"></div>
-          <div className="absolute top-0 -right-4 w-72 h-72 bg-purple-500/20 rounded-full mix-blend-multiply filter blur-xl opacity-20 animate-blob animation-delay-2000"></div>
-          <div className="absolute -bottom-8 left-20 w-72 h-72 bg-blue-500/20 rounded-full mix-blend-multiply filter blur-xl opacity-20 animate-blob animation-delay-4000"></div>
+          <div className="absolute -top-20 -left-4 w-96 h-96 bg-slate-400/5 rounded-full mix-blend-soft-light filter blur-xl opacity-30 animate-blob"></div>
+          <div className="absolute top-40 -right-4 w-72 h-72 bg-slate-500/5 rounded-full mix-blend-soft-light filter blur-xl opacity-30 animate-blob animation-delay-2000"></div>
+          <div className="absolute -bottom-32 left-40 w-80 h-80 bg-slate-600/5 rounded-full mix-blend-soft-light filter blur-xl opacity-30 animate-blob animation-delay-4000"></div>
         </div>
 
         <motion.div
