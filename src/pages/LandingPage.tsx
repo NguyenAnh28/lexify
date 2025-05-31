@@ -1,106 +1,154 @@
-import { motion } from 'framer-motion';
-import { BookOpen, Search, Bookmark, ChevronRight } from 'lucide-react';
-import { Link } from 'react-router-dom';
+import { motion, useScroll, useTransform } from "framer-motion";
+import { BookOpen, Search, Bookmark, ArrowRight, Sparkles } from "lucide-react";
+import { Link } from "react-router-dom";
+import { useRef } from "react";
 
 const LandingPage = () => {
+  const targetRef = useRef<HTMLDivElement>(null);
+  const { scrollYProgress } = useScroll({
+    target: targetRef,
+    offset: ["start start", "end start"],
+  });
+
+  const opacity = useTransform(scrollYProgress, [0, 0.5], [1, 0]);
+  const scale = useTransform(scrollYProgress, [0, 0.5], [1, 0.8]);
+
   const features = [
     {
-      icon: <Search className="w-10 h-10 text-blue-950" />,
-      title: 'Discover Books',
-      description: 'Search through millions of books using the Google Books API. Find your next favorite read in seconds.'
+      icon: <Search className="w-6 h-6 text-blue-500" />,
+      title: "Smart Discovery",
+      description:
+        "Find your next favorite book with our intelligent search powered by the Google Books API.",
     },
     {
-      icon: <Bookmark className="w-10 h-10 text-blue-950" />,
-      title: 'Build Your Shelf',
-      description: 'Save books to your personal digital bookshelf. Organize and keep track of what you want to read.'
+      icon: <Bookmark className="w-6 h-6 text-purple-500" />,
+      title: "Digital Collection",
+      description:
+        "Build and organize your personal library with our intuitive digital bookshelf system.",
     },
     {
-      icon: <BookOpen className="w-10 h-10 text-blue-950" />,
-      title: 'Accessible Anywhere',
-      description: 'Your digital bookshelf is available on any device. Take your reading list wherever you go.'
-    }
+      icon: <BookOpen className="w-6 h-6 text-green-500" />,
+      title: "Read Anywhere",
+      description:
+        "Access your curated collection seamlessly across all your devices, anytime.",
+    },
   ];
 
   return (
-    <div className="flex flex-col">
+    <div className="min-h-screen bg-gradient-to-b from-slate-950 to-slate-900 text-white">
       {/* Hero Section */}
-      <section className="bg-gradient-to-b from-blue-50 to-slate-50 py-20">
-        <div className="container-custom">
-          <div className="flex flex-col md:flex-row items-center">
-            <motion.div 
-              initial={{ opacity: 0, x: -20 }}
-              animate={{ opacity: 1, x: 0 }}
-              transition={{ duration: 0.6 }}
-              className="md:w-1/2 mb-10 md:mb-0"
+      <div
+        ref={targetRef}
+        className="relative min-h-screen flex items-center justify-center overflow-hidden"
+      >
+        {/* Animated background gradient */}
+        <div className="absolute inset-0 w-full h-full">
+          <div className="absolute top-0 -left-4 w-72 h-72 bg-blue-500 rounded-full mix-blend-multiply filter blur-xl opacity-20 animate-blob"></div>
+          <div className="absolute top-0 -right-4 w-72 h-72 bg-purple-500 rounded-full mix-blend-multiply filter blur-xl opacity-20 animate-blob animation-delay-2000"></div>
+          <div className="absolute -bottom-8 left-20 w-72 h-72 bg-green-500 rounded-full mix-blend-multiply filter blur-xl opacity-20 animate-blob animation-delay-4000"></div>
+        </div>
+
+        <motion.div
+          style={{ opacity, scale }}
+          className="container mx-auto px-4 relative z-10"
+        >
+          <div className="text-center max-w-4xl mx-auto">
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.8 }}
+              className="mb-6"
             >
-              <h1 className="text-4xl md:text-5xl font-bold text-blue-950 mb-4 leading-tight">
-                Your Personal <span className="text-green-700">Digital Bookshelf</span>
-              </h1>
-              <p className="text-lg md:text-xl text-slate-700 mb-8 leading-relaxed">
-                Discover, save, and organize your favorite books in one beautiful place. 
-                VectorShelf makes it easy to build your personal reading collection.
-              </p>
-              <div className="flex flex-col sm:flex-row gap-4">
-                <Link to="/search" className="btn btn-primary text-center">
-                  Start Searching
-                </Link>
-                <Link to="/auth" className="btn btn-outline text-center">
-                  Create Your Shelf
-                </Link>
-              </div>
+              <span className="inline-flex items-center px-3 py-1 rounded-full text-sm font-medium bg-slate-800/50 text-blue-400 backdrop-blur-sm border border-slate-700/50 mb-4">
+                <Sparkles className="w-4 h-4 mr-2" />
+                Discover Your Next Great Read
+              </span>
             </motion.div>
-            
-            <motion.div 
-              initial={{ opacity: 0, scale: 0.8 }}
-              animate={{ opacity: 1, scale: 1 }}
-              transition={{ duration: 0.6, delay: 0.2 }}
-              className="md:w-1/2 flex justify-center"
+
+            <motion.h1
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.8, delay: 0.2 }}
+              className="text-5xl md:text-7xl font-bold mb-6 bg-clip-text text-transparent bg-gradient-to-r from-blue-400 via-purple-400 to-green-400"
             >
-              <div className="relative w-full max-w-lg">
-                <div className="absolute -top-4 -left-4 w-72 h-72 bg-blue-200 rounded-full opacity-30 filter blur-3xl"></div>
-                <div className="absolute -bottom-8 -right-4 w-72 h-72 bg-green-200 rounded-full opacity-30 filter blur-3xl"></div>
-                <img 
-                  src="https://images.pexels.com/photos/1370295/pexels-photo-1370295.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2" 
-                  alt="Books on a shelf" 
-                  className="relative z-10 rounded-xl shadow-xl w-full object-cover max-h-96"
-                />
-              </div>
+              Your Books, Reimagined
+            </motion.h1>
+
+            <motion.p
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.8, delay: 0.4 }}
+              className="text-xl text-slate-300 mb-8 max-w-2xl mx-auto"
+            >
+              Transform your reading experience with VectorShelf. Discover,
+              collect, and organize your books in a beautiful digital space
+              designed for modern readers.
+            </motion.p>
+
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.8, delay: 0.6 }}
+              className="flex flex-col sm:flex-row gap-4 justify-center"
+            >
+              <Link
+                to="/search"
+                className="inline-flex items-center px-6 py-3 rounded-lg bg-gradient-to-r from-blue-500 to-purple-500 text-white font-medium hover:opacity-90 transition-all duration-200 shadow-lg hover:shadow-blue-500/25"
+              >
+                Start Exploring
+                <ArrowRight className="ml-2 w-5 h-5" />
+              </Link>
+              <Link
+                to="/auth"
+                className="inline-flex items-center px-6 py-3 rounded-lg bg-slate-800/50 backdrop-blur-sm border border-slate-700/50 text-white font-medium hover:bg-slate-800/70 transition-all duration-200"
+              >
+                Create Account
+              </Link>
             </motion.div>
           </div>
-        </div>
-      </section>
+        </motion.div>
+      </div>
 
       {/* Features Section */}
-      <section className="py-20">
-        <div className="container-custom">
-          <motion.div 
+      <section className="py-32 relative">
+        <div className="container mx-auto px-4">
+          <motion.div
             initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.5 }}
-            className="text-center mb-16"
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.8 }}
+            className="text-center mb-20"
           >
-            <h2 className="text-3xl md:text-4xl font-bold text-blue-950 mb-4">
-              Everything You Need For Your Reading Journey
+            <h2 className="text-4xl md:text-5xl font-bold mb-6">
+              Everything You Need
+              <span className="block text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-purple-400">
+                For Your Reading Journey
+              </span>
             </h2>
-            <p className="text-lg text-slate-600 max-w-3xl mx-auto">
-              VectorShelf provides all the tools you need to discover new books and manage your collection.
+            <p className="text-xl text-slate-400 max-w-2xl mx-auto">
+              Discover powerful features designed to enhance your reading
+              experience and book collection management.
             </p>
           </motion.div>
-          
+
           <div className="grid md:grid-cols-3 gap-8">
             {features.map((feature, index) => (
               <motion.div
                 key={index}
                 initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.5, delay: index * 0.1 }}
-                className="bg-white rounded-xl shadow-md p-8 hover:shadow-lg transition-shadow duration-300"
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.5, delay: index * 0.2 }}
+                className="group relative"
               >
-                <div className="mb-4 bg-blue-50 w-16 h-16 rounded-full flex items-center justify-center">
-                  {feature.icon}
+                <div className="absolute inset-0 bg-gradient-to-r from-blue-500/10 to-purple-500/10 rounded-2xl blur-xl opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+                <div className="relative bg-slate-800/50 backdrop-blur-sm border border-slate-700/50 rounded-2xl p-8 hover:border-slate-600/50 transition-all duration-300">
+                  <div className="mb-6 inline-flex items-center justify-center w-12 h-12 rounded-xl bg-slate-800">
+                    {feature.icon}
+                  </div>
+                  <h3 className="text-xl font-bold mb-4">{feature.title}</h3>
+                  <p className="text-slate-400">{feature.description}</p>
                 </div>
-                <h3 className="text-xl font-bold text-blue-950 mb-2">{feature.title}</h3>
-                <p className="text-slate-600">{feature.description}</p>
               </motion.div>
             ))}
           </div>
@@ -108,36 +156,34 @@ const LandingPage = () => {
       </section>
 
       {/* CTA Section */}
-      <section className="bg-blue-950 text-white py-20">
-        <div className="container-custom">
-          <div className="flex flex-col md:flex-row items-center justify-between">
-            <motion.div 
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.5 }}
-              className="md:w-2/3 mb-8 md:mb-0"
+      <section className="py-32 relative">
+        <div className="absolute inset-0 bg-gradient-to-r from-blue-500/20 to-purple-500/20 opacity-20"></div>
+        <div className="container mx-auto px-4 relative">
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.8 }}
+            className="max-w-4xl mx-auto text-center"
+          >
+            <h2 className="text-4xl md:text-5xl font-bold mb-6">
+              Ready to Transform Your
+              <span className="block text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-purple-400">
+                Reading Experience?
+              </span>
+            </h2>
+            <p className="text-xl text-slate-300 mb-8">
+              Join thousands of readers who have already discovered the future
+              of digital bookshelves.
+            </p>
+            <Link
+              to="/auth"
+              className="inline-flex items-center px-8 py-4 rounded-lg bg-gradient-to-r from-blue-500 to-purple-500 text-white font-medium hover:opacity-90 transition-all duration-200 shadow-lg hover:shadow-blue-500/25"
             >
-              <h2 className="text-3xl md:text-4xl font-bold mb-4">
-                Ready to Build Your Digital Bookshelf?
-              </h2>
-              <p className="text-blue-100 text-lg mb-0">
-                Sign up now and start discovering and saving your favorite books.
-              </p>
-            </motion.div>
-            <motion.div
-              initial={{ opacity: 0, scale: 0.9 }}
-              animate={{ opacity: 1, scale: 1 }}
-              transition={{ duration: 0.5, delay: 0.2 }}
-            >
-              <Link 
-                to="/auth" 
-                className="btn bg-white text-blue-950 hover:bg-blue-100 group"
-              >
-                Get Started 
-                <ChevronRight size={20} className="ml-1 group-hover:translate-x-1 transition-transform" />
-              </Link>
-            </motion.div>
-          </div>
+              Get Started Now
+              <ArrowRight className="ml-2 w-5 h-5" />
+            </Link>
+          </motion.div>
         </div>
       </section>
     </div>
