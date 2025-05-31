@@ -121,7 +121,7 @@ const LandingPage = () => {
           >
             <h2 className="text-4xl md:text-5xl font-bold mb-8 leading-[1.3] md:leading-[1.2]">
               Everything You Need
-              <span className="block text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-purple-400 mt-3 py-1">
+              <span className="block text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-purple-400 mt-1 py-1">
                 For Your Reading Journey
               </span>
             </h2>
@@ -139,15 +139,17 @@ const LandingPage = () => {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.5, delay: index * 0.2 }}
-                className="group relative"
+                className="group relative h-full"
               >
                 <div className="absolute inset-0 bg-gradient-to-r from-blue-500/10 to-purple-500/10 rounded-2xl blur-xl opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
-                <div className="relative bg-slate-800/50 backdrop-blur-sm border border-slate-700/50 rounded-2xl p-8 hover:border-slate-600/50 transition-all duration-300">
+                <div className="relative bg-slate-800/50 backdrop-blur-sm border border-slate-700/50 rounded-2xl p-8 hover:border-slate-600/50 transition-all duration-300 h-full flex flex-col">
                   <div className="mb-6 inline-flex items-center justify-center w-12 h-12 rounded-xl bg-slate-800">
                     {feature.icon}
                   </div>
                   <h3 className="text-xl font-bold mb-4">{feature.title}</h3>
-                  <p className="text-slate-400">{feature.description}</p>
+                  <p className="text-slate-400 flex-grow">
+                    {feature.description}
+                  </p>
                 </div>
               </motion.div>
             ))}
@@ -168,7 +170,7 @@ const LandingPage = () => {
           >
             <h2 className="text-4xl md:text-5xl font-bold mb-8 leading-[1.3] md:leading-[1.2]">
               Ready to Transform Your
-              <span className="block text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-purple-400 mt-3 py-1">
+              <span className="block text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-purple-400 mt-1 py-1">
                 Reading Experience?
               </span>
             </h2>
