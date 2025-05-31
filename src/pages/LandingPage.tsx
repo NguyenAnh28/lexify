@@ -121,7 +121,7 @@ const LandingPage = () => {
           >
             <h2 className="text-4xl md:text-5xl font-bold mb-8 leading-[1.3] md:leading-[1.2]">
               Everything You Need
-              <span className="block text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-purple-400 mt-1 py-1">
+              <span className="block text-transparent bg-clip-text bg-gradient-to-r from-blue-400 via-purple-400 to-green-400 mt-1 py-1">
                 For Your Reading Journey
               </span>
             </h2>
@@ -170,7 +170,7 @@ const LandingPage = () => {
           >
             <h2 className="text-4xl md:text-5xl font-bold mb-8 leading-[1.3] md:leading-[1.2]">
               Ready to Transform Your
-              <span className="block text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-purple-400 mt-1 py-1">
+              <span className="block text-transparent bg-clip-text bg-gradient-to-r from-blue-400 via-purple-400 to-green-400 mt-1 py-1">
                 Reading Experience?
               </span>
             </h2>
