@@ -126,16 +126,34 @@ const LandingPage = () => {
             transition={{ duration: 0.8 }}
             className="text-center mb-20"
           >
-            <h2 className="text-4xl md:text-5xl font-bold font-display mb-8 leading-[1.3] md:leading-[1.2] tracking-super-tight">
+            <motion.h2
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.8 }}
+              className="text-4xl md:text-5xl font-bold font-display mb-8 leading-[1.3] md:leading-[1.2] tracking-super-tight"
+            >
               Everything You Need
-              <span className="block text-transparent bg-clip-text bg-gradient-to-r from-blue-200 via-indigo-300 to-purple-200 mt-1 py-1">
+              <motion.span
+                initial={{ opacity: 0, y: 10 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.8, delay: 0.2 }}
+                className="block text-transparent bg-clip-text bg-gradient-to-r from-blue-200 via-indigo-300 to-purple-200 mt-1 py-1"
+              >
                 For Your Reading Journey
-              </span>
-            </h2>
-            <p className="text-xl text-slate-400/90 max-w-2xl mx-auto font-light tracking-wide leading-relaxed">
+              </motion.span>
+            </motion.h2>
+            <motion.p
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.8, delay: 0.3 }}
+              className="text-xl text-slate-400/90 max-w-2xl mx-auto font-light tracking-wide leading-relaxed"
+            >
               Discover powerful features designed to enhance your reading
               experience and book collection management.
-            </p>
+            </motion.p>
           </motion.div>
 
           <div className="grid md:grid-cols-3 gap-8">
@@ -168,7 +186,18 @@ const LandingPage = () => {
 
       {/* CTA Section */}
       <section className="py-32 relative">
-        <div className="absolute inset-0 bg-gradient-to-r from-indigo-500/10 to-purple-500/10 opacity-20"></div>
+        {/* Background gradients */}
+        <div className="absolute inset-0 bg-[radial-gradient(120%_120%_at_70%_80%,#4A5569_0%,#1A1F2E_25%,#000000_65%)] pointer-events-none"></div>
+        <div className="absolute inset-0 bg-[url('/noise.png')] opacity-[0.05] mix-blend-overlay pointer-events-none"></div>
+        <div className="absolute inset-0 bg-gradient-to-b from-black via-transparent to-black/40 pointer-events-none"></div>
+
+        {/* Animated blobs */}
+        <div className="absolute inset-0 w-full h-full overflow-hidden">
+          <div className="absolute top-1/2 right-0 w-[500px] h-[500px] bg-slate-400/5 rounded-full mix-blend-soft-light filter blur-xl opacity-30 animate-blob"></div>
+          <div className="absolute bottom-0 right-1/4 w-[400px] h-[400px] bg-slate-500/5 rounded-full mix-blend-soft-light filter blur-xl opacity-30 animate-blob animation-delay-2000"></div>
+          <div className="absolute top-1/4 right-1/3 w-[450px] h-[450px] bg-slate-600/5 rounded-full mix-blend-soft-light filter blur-xl opacity-30 animate-blob animation-delay-4000"></div>
+        </div>
+
         <div className="container mx-auto px-4 relative">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
@@ -177,23 +206,48 @@ const LandingPage = () => {
             transition={{ duration: 0.8 }}
             className="max-w-4xl mx-auto text-center"
           >
-            <h2 className="text-4xl md:text-5xl font-bold font-display mb-8 leading-[1.3] md:leading-[1.2] tracking-super-tight">
+            <motion.h2
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.8 }}
+              className="text-4xl md:text-5xl font-bold font-display mb-8 leading-[1.3] md:leading-[1.2] tracking-super-tight"
+            >
               Ready to Transform Your
-              <span className="block text-transparent bg-clip-text bg-gradient-to-r from-blue-200 via-indigo-300 to-purple-200 mt-1 py-1">
+              <motion.span
+                initial={{ opacity: 0, y: 10 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.8, delay: 0.2 }}
+                className="block text-transparent bg-clip-text bg-gradient-to-r from-blue-200 via-indigo-300 to-purple-200 mt-1 py-1"
+              >
                 Reading Experience?
-              </span>
-            </h2>
-            <p className="text-xl text-slate-300/90 mb-8 font-light tracking-wide leading-relaxed">
+              </motion.span>
+            </motion.h2>
+            <motion.p
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.8, delay: 0.3 }}
+              className="text-xl text-slate-300/90 mb-8 font-light tracking-wide leading-relaxed"
+            >
               Join thousands of readers who have already discovered the future
               of digital bookshelves.
-            </p>
-            <Link
-              to="/auth"
-              className="inline-flex items-center px-8 py-4 rounded-full bg-gradient-to-r from-indigo-500/90 to-purple-500/90 text-white font-medium tracking-wide hover:opacity-90 transition-all duration-200 shadow-lg hover:shadow-indigo-500/25 hover:scale-[1.02] backdrop-blur-sm"
+            </motion.p>
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.8, delay: 0.4 }}
             >
-              Get Started Now
-              <ArrowRight className="ml-2 w-5 h-5" />
-            </Link>
+              <Link
+                to="/auth"
+                className="inline-flex items-center px-8 py-4 rounded-full bg-gradient-to-r from-indigo-500/90 to-purple-500/90 text-white font-medium tracking-wide hover:opacity-90 transition-all duration-200 shadow-lg hover:shadow-indigo-500/25 hover:scale-[1.02] backdrop-blur-sm"
+              >
+                Get Started Now
+                <ArrowRight className="ml-2 w-5 h-5" />
+              </Link>
+            </motion.div>
           </motion.div>
         </div>
       </section>

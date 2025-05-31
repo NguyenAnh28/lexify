@@ -4,8 +4,18 @@ const Footer = () => {
   const currentYear = new Date().getFullYear();
 
   return (
-    <footer className="bg-black text-slate-200 py-12">
-      <div className="container-custom">
+    <footer className="relative bg-black text-slate-200 py-12">
+      {/* Background gradients */}
+      <div className="absolute inset-0 bg-[radial-gradient(120%_120%_at_10%_110%,#4A5569_0%,#1A1F2E_25%,#000000_65%)] pointer-events-none"></div>
+      <div className="absolute inset-0 bg-[url('/noise.png')] opacity-[0.05] mix-blend-overlay pointer-events-none"></div>
+
+      {/* Animated blobs */}
+      <div className="absolute inset-0 w-full h-full overflow-hidden">
+        <div className="absolute bottom-0 left-0 w-[400px] h-[400px] bg-slate-400/5 rounded-full mix-blend-soft-light filter blur-xl opacity-30 animate-blob"></div>
+        <div className="absolute bottom-1/4 left-1/4 w-[350px] h-[350px] bg-slate-500/5 rounded-full mix-blend-soft-light filter blur-xl opacity-30 animate-blob animation-delay-2000"></div>
+      </div>
+
+      <div className="container-custom relative">
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
           <div>
             <div className="flex items-center space-x-2 mb-4">
