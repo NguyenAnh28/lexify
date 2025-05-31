@@ -66,7 +66,7 @@ const Header = () => {
       <div
         className={`relative w-[98%] max-w-7xl rounded-full transition-all duration-500 ${
           scrolled
-            ? "bg-slate-900/95 backdrop-blur-lg shadow-lg shadow-slate-900/20"
+            ? "bg-slate-900/70 backdrop-blur-xl shadow-lg shadow-slate-900/10"
             : "bg-transparent"
         }`}
       >
@@ -76,7 +76,7 @@ const Header = () => {
               initial={{ scale: 0.8, opacity: 0 }}
               animate={{ scale: 1, opacity: 1 }}
               transition={{ duration: 0.5 }}
-              className="flex items-center justify-center w-10 h-10 rounded-xl bg-gradient-to-r from-blue-500 to-purple-500 text-white shadow-lg group-hover:shadow-blue-500/25 transition-shadow duration-200"
+              className="flex items-center justify-center w-10 h-10 rounded-xl bg-gradient-to-r from-indigo-500/90 to-purple-500/90 text-white shadow-lg group-hover:shadow-indigo-500/25 transition-shadow duration-200 backdrop-blur-sm"
             >
               <Bookmark size={20} />
             </motion.div>
@@ -91,7 +91,7 @@ const Header = () => {
               to="/"
               className={`flex items-center space-x-2 px-4 py-2 rounded-full transition-all duration-200 group ${
                 isActive("/")
-                  ? "text-white bg-white/10"
+                  ? "text-white bg-white/10 backdrop-blur-sm"
                   : "text-slate-300 hover:text-white hover:bg-white/5"
               }`}
             >
@@ -105,7 +105,7 @@ const Header = () => {
               to="/search"
               className={`flex items-center space-x-2 px-4 py-2 rounded-full transition-all duration-200 group ${
                 isActive("/search")
-                  ? "text-white bg-white/10"
+                  ? "text-white bg-white/10 backdrop-blur-sm"
                   : "text-slate-300 hover:text-white hover:bg-white/5"
               }`}
             >
@@ -121,7 +121,7 @@ const Header = () => {
                   to="/shelf"
                   className={`flex items-center space-x-2 px-4 py-2 rounded-full transition-all duration-200 group ${
                     isActive("/shelf")
-                      ? "text-white bg-white/10"
+                      ? "text-white bg-white/10 backdrop-blur-sm"
                       : "text-slate-300 hover:text-white hover:bg-white/5"
                   }`}
                 >
@@ -145,7 +145,7 @@ const Header = () => {
             ) : (
               <Link
                 to="/auth"
-                className="flex items-center space-x-2 px-5 py-2 rounded-full bg-gradient-to-r from-blue-500 to-purple-500 text-white text-sm font-medium tracking-wide hover:opacity-90 transition-all duration-200 shadow-lg hover:shadow-blue-500/25 hover:scale-[1.02]"
+                className="flex items-center space-x-2 px-5 py-2 rounded-full bg-gradient-to-r from-indigo-500/90 to-purple-500/90 text-white text-sm font-medium tracking-wide hover:opacity-90 transition-all duration-200 shadow-lg hover:shadow-indigo-500/25 hover:scale-[1.02] backdrop-blur-sm"
               >
                 <LogIn size={18} />
                 <span>Sign In</span>
@@ -155,7 +155,7 @@ const Header = () => {
 
           {/* Mobile menu button */}
           <motion.button
-            className="md:hidden relative w-10 h-10 rounded-full bg-white/10 text-slate-300 hover:text-white transition-colors duration-200 flex items-center justify-center"
+            className="md:hidden relative w-10 h-10 rounded-full bg-white/5 text-slate-300 hover:text-white transition-colors duration-200 flex items-center justify-center backdrop-blur-sm"
             onClick={toggleMenu}
             whileTap={{ scale: 0.95 }}
             aria-label="Toggle menu"
@@ -172,14 +172,14 @@ const Header = () => {
               animate={{ opacity: 1, height: "auto" }}
               exit={{ opacity: 0, height: 0 }}
               transition={{ duration: 0.2 }}
-              className="md:hidden overflow-hidden bg-slate-900/95 backdrop-blur-lg rounded-2xl mx-4 mt-2"
+              className="md:hidden overflow-hidden bg-slate-900/70 backdrop-blur-xl rounded-2xl mx-4 mt-2"
             >
               <nav className="container mx-auto px-4 py-4 flex flex-col space-y-2">
                 <Link
                   to="/"
                   className={`flex items-center space-x-3 p-3 rounded-full transition-all duration-200 ${
                     isActive("/")
-                      ? "bg-white/10 text-white"
+                      ? "bg-white/10 text-white backdrop-blur-sm"
                       : "text-slate-300 hover:bg-white/5 hover:text-white"
                   }`}
                 >
@@ -190,7 +190,7 @@ const Header = () => {
                   to="/search"
                   className={`flex items-center space-x-3 p-3 rounded-full transition-all duration-200 ${
                     isActive("/search")
-                      ? "bg-white/10 text-white"
+                      ? "bg-white/10 text-white backdrop-blur-sm"
                       : "text-slate-300 hover:bg-white/5 hover:text-white"
                   }`}
                 >
@@ -203,7 +203,7 @@ const Header = () => {
                       to="/shelf"
                       className={`flex items-center space-x-3 p-3 rounded-full transition-all duration-200 ${
                         isActive("/shelf")
-                          ? "bg-white/10 text-white"
+                          ? "bg-white/10 text-white backdrop-blur-sm"
                           : "text-slate-300 hover:bg-white/5 hover:text-white"
                       }`}
                     >
@@ -221,7 +221,7 @@ const Header = () => {
                 ) : (
                   <Link
                     to="/auth"
-                    className="flex items-center space-x-3 p-3 rounded-full bg-gradient-to-r from-blue-500 to-purple-500 text-white font-medium shadow-lg hover:shadow-blue-500/25"
+                    className="flex items-center space-x-3 p-3 rounded-full bg-gradient-to-r from-indigo-500/90 to-purple-500/90 text-white font-medium shadow-lg hover:shadow-indigo-500/25 backdrop-blur-sm"
                   >
                     <LogIn size={20} />
                     <span>Sign In</span>
