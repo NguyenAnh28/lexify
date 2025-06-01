@@ -36,13 +36,13 @@ const LandingPage = () => {
   ];
 
   return (
-    <div className="relative min-h-screen bg-[radial-gradient(100%_100%_at_85%_-15%,#4A5569_0%,#1A1F2E_25%,#000000_65%)] text-white overflow-hidden">
+    <div className="relative min-h-screen bg-[radial-gradient(100%_100%_at_15%_60%,#4A5569_0%,#1A1F2E_25%,#000000_65%)] text-white overflow-hidden">
       {/* Noise texture overlay */}
       <div className="absolute inset-0 bg-[url('/noise.png')] opacity-[0.05] mix-blend-overlay pointer-events-none"></div>
 
       {/* Gradient overlays for depth */}
       <div className="absolute inset-0 bg-gradient-to-b from-transparent via-black/40 to-black pointer-events-none"></div>
-      <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_85%_-15%,rgba(74,85,105,0.15)_0%,rgba(0,0,0,0.4)_100%)] pointer-events-none"></div>
+      <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_15%_60%,rgba(74,85,105,0.15)_0%,rgba(0,0,0,0.4)_100%)] pointer-events-none"></div>
 
       {/* Hero Section */}
       <div
@@ -167,9 +167,9 @@ const LandingPage = () => {
                 transition={{ duration: 0.5, delay: index * 0.2 }}
                 className="group relative h-full"
               >
-                <div className="absolute inset-0 bg-gradient-to-r from-indigo-500/5 to-purple-500/5 rounded-2xl blur-xl opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
-                <div className="relative bg-slate-800/20 backdrop-blur-md border border-slate-700/20 rounded-2xl p-8 hover:border-slate-600/30 transition-all duration-300 h-full flex flex-col">
-                  <div className="mb-6 inline-flex items-center justify-center w-12 h-12 rounded-xl bg-slate-800/50">
+                <div className="absolute inset-0 bg-gradient-to-r from-slate-500/10 to-slate-400/10 rounded-2xl blur-xl opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+                <div className="relative bg-black/40 backdrop-blur-md border border-slate-800/40 rounded-2xl p-8 hover:border-slate-600/40 transition-all duration-300 h-full flex flex-col">
+                  <div className="mb-6 inline-flex items-center justify-center w-12 h-12 rounded-xl bg-black/70">
                     {feature.icon}
                   </div>
                   <h3 className="text-xl font-bold font-display mb-4 tracking-super-tight">

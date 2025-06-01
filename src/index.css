@@ -5,13 +5,30 @@
 @tailwind utilities;
 
 @layer base {
+  /* Override default background colors */
+  :root {
+    background-color: #000000;
+  }
+  
   html {
     font-family: 'Manrope', system-ui, sans-serif;
     @apply text-slate-800;
+    background-color: #000000;
   }
   
   body {
-    @apply bg-slate-50;
+    background-color: #000000;
+    min-height: 100vh;
+    @apply bg-black;
+  }
+  
+  /* Force black background on overscroll for webkit browsers */
+  ::-webkit-scrollbar {
+    background-color: #000000;
+  }
+  
+  ::-webkit-scrollbar-track {
+    background-color: #000000;
   }
   
   h1, h2, h3, h4, h5, h6 {
