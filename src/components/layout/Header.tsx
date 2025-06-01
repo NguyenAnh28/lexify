@@ -56,12 +56,12 @@ const Header = () => {
             <div className="flex items-center justify-center w-10 h-10 group-hover:scale-105 transition-all duration-200">
               <img
                 src={logo}
-                alt="VectorShelf Logo"
+                alt="Lexify Logo"
                 className="w-8 h-8 object-contain"
               />
             </div>
             <span className="text-base font-normal tracking-super-tight font-manrope text-white">
-              VectorShelf
+              Lexify
             </span>
           </Link>
 

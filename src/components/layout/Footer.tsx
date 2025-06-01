@@ -12,7 +12,7 @@ const Footer = () => {
               <div className="flex items-center justify-center w-8 h-8 rounded-lg bg-white/10">
                 <BookOpen size={18} className="text-white" />
               </div>
-              <h3 className="text-xl font-bold text-white">VectorShelf</h3>
+              <h3 className="text-xl font-bold text-white">Lexify</h3>
             </div>
             <p className="text-slate-300 mb-4">
               Your personal digital bookshelf for discovering and managing your
@@ -69,8 +69,8 @@ const Footer = () => {
           <div>
             <h4 className="text-lg font-bold text-white mb-4">About</h4>
             <p className="text-slate-300 mb-4">
-              VectorShelf is powered by the Google Books API and built with
-              React, FastAPI, and Supabase.
+              Lexify is powered by the Google Books API and built with React,
+              FastAPI, and Supabase.
             </p>
             <p className="text-slate-300">
               This application is created for educational purposes.
@@ -80,7 +80,7 @@ const Footer = () => {
 
         <div className="border-t border-white/10 mt-8 pt-8 flex flex-col md:flex-row justify-between items-center">
           <p className="text-slate-400 text-sm mb-4 md:mb-0">
-            &copy; {currentYear} VectorShelf. All rights reserved.
+            &copy; {currentYear} Lexify. All rights reserved.
           </p>
           <p className="text-slate-400 text-sm flex items-center">
             Made with <Heart size={14} className="mx-1 text-red-500" /> for book

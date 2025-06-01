@@ -88,9 +88,9 @@ const LandingPage = () => {
               transition={{ duration: 0.8, delay: 0.4 }}
               className="text-xl text-slate-300/90 mb-8 max-w-2xl mx-auto font-light tracking-wide leading-relaxed font-manrope"
             >
-              Transform your reading experience with VectorShelf. Discover,
-              collect, and organize your books in a beautiful digital space
-              designed for modern readers.
+              Transform your reading experience with Lexify. Discover, collect,
+              and organize your books in a beautiful digital space designed for
+              modern readers.
             </motion.p>
 
             <motion.div
@@ -101,14 +101,14 @@ const LandingPage = () => {
             >
               <Link
                 to="/search"
-                className="inline-flex items-center px-6 py-3 rounded-full bg-gradient-to-r from-black/90 to-slate-900/90 text-white font-normal hover:from-black hover:to-slate-900 transition-all duration-300 shadow-lg shadow-black/20 hover:shadow-slate-500/20 hover:scale-[1.02] backdrop-blur-sm"
+                className="inline-flex items-center px-6 py-3 rounded-full bg-gradient-to-r from-black/90 to-slate-900/90 text-white text-base font-normal hover:from-black hover:to-slate-900 transition-all duration-300 shadow-lg shadow-black/20 hover:shadow-slate-500/20 hover:scale-[1.02] backdrop-blur-sm"
               >
                 Start Exploring
                 <ArrowRight className="ml-2 w-5 h-5" />
               </Link>
               <Link
                 to="/auth"
-                className="inline-flex items-center px-6 py-3 rounded-full bg-slate-800/30 backdrop-blur-md text-white font-normal hover:bg-slate-800/40 transition-all duration-200 hover:scale-[1.02]"
+                className="inline-flex items-center px-6 py-3 rounded-full bg-slate-800/30 backdrop-blur-md text-white text-base font-normal hover:bg-slate-800/40 transition-all duration-200 hover:scale-[1.02]"
               >
                 Create Account
               </Link>
@@ -233,7 +233,7 @@ const LandingPage = () => {
               className="text-xl text-slate-300/90 mb-8 font-light tracking-wide leading-relaxed font-manrope"
             >
               Join thousands of readers who have already discovered the future
-              of digital bookshelves.
+              of digital bookshelves with Lexify.
             </motion.p>
             <motion.div
               initial={{ opacity: 0, y: 20 }}
@@ -243,7 +243,7 @@ const LandingPage = () => {
             >
               <Link
                 to="/auth"
-                className="inline-flex items-center px-8 py-4 rounded-full bg-gradient-to-r from-black/90 to-slate-900/90 text-white font-normal tracking-wide hover:from-black hover:to-slate-900 transition-all duration-300 shadow-lg shadow-black/20 hover:shadow-slate-500/20 hover:scale-[1.02] backdrop-blur-sm"
+                className="inline-flex items-center px-8 py-4 rounded-full bg-gradient-to-r from-black/90 to-slate-900/90 text-white text-base font-normal tracking-wide hover:from-black hover:to-slate-900 transition-all duration-300 shadow-lg shadow-black/20 hover:shadow-slate-500/20 hover:scale-[1.02] backdrop-blur-sm"
               >
                 Get Started Now
                 <ArrowRight className="ml-2 w-5 h-5" />
