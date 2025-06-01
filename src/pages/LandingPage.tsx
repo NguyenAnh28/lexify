@@ -67,8 +67,8 @@ const LandingPage = () => {
               transition={{ duration: 0.8 }}
               className="mb-6"
             >
-              <span className="inline-flex items-center px-4 py-1.5 rounded-full text-sm font-normal tracking-wide bg-slate-800/30 text-blue-300 backdrop-blur-md border border-slate-700/30 mb-4">
-                <Sparkles className="w-4 h-4 mr-2" />
+              <span className="inline-flex items-center px-5 py-2 rounded-full text-base font-normal tracking-wide bg-slate-800/30 text-slate-300 backdrop-blur-md border border-slate-700/30 mb-4">
+                <Sparkles className="w-5 h-5 mr-2.5" />
                 Discover Your Next Great Read
               </span>
             </motion.div>
