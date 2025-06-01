@@ -2,6 +2,7 @@ import { motion, useScroll, useTransform } from "framer-motion";
 import { BookOpen, Search, Bookmark, ArrowRight, Sparkles } from "lucide-react";
 import { Link } from "react-router-dom";
 import { useRef } from "react";
+import logo from "../assets/logo.png";
 
 const LandingPage = () => {
   const targetRef = useRef<HTMLDivElement>(null);

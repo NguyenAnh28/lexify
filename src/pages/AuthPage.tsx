@@ -1,9 +1,10 @@
-import { useState } from 'react';
-import { useAuth } from '../contexts/AuthContext';
-import { useForm } from 'react-hook-form';
-import { Lock, Mail, User, Eye, EyeOff } from 'lucide-react';
-import { motion } from 'framer-motion';
-import LoadingSpinner from '../components/ui/LoadingSpinner';
+import { useState, useEffect } from "react";
+import { useAuth } from "../contexts/AuthContext";
+import { useForm } from "react-hook-form";
+import { Lock, Mail, User, Eye, EyeOff } from "lucide-react";
+import { motion } from "framer-motion";
+import LoadingSpinner from "../components/ui/LoadingSpinner";
+import { useSearchParams } from "react-router-dom";
 
 interface AuthFormInputs {
   email: string;
@@ -11,24 +12,30 @@ interface AuthFormInputs {
 }
 
 const AuthPage = () => {
+  const [searchParams] = useSearchParams();
   const [isLogin, setIsLogin] = useState(true);
   const [showPassword, setShowPassword] = useState(false);
   const { signIn, signUp, loading, error } = useAuth();
-  
-  const { 
-    register, 
+
+  const {
+    register,
     handleSubmit,
-    formState: { errors } 
+    formState: { errors },
   } = useForm<AuthFormInputs>();
-  
+
+  useEffect(() => {
+    const mode = searchParams.get("mode");
+    setIsLogin(mode !== "signup");
+  }, [searchParams]);
+
   const toggleAuthMode = () => {
     setIsLogin(!isLogin);
   };
-  
+
   const togglePasswordVisibility = () => {
     setShowPassword(!showPassword);
   };
-  
+
   const onSubmit = async (data: AuthFormInputs) => {
     if (isLogin) {
       await signIn(data.email, data.password);
@@ -36,7 +43,7 @@ const AuthPage = () => {
       await signUp(data.email, data.password);
     }
   };
-  
+
   return (
     <div className="container-custom py-12 md:py-20">
       <div className="max-w-md mx-auto">
@@ -48,25 +55,28 @@ const AuthPage = () => {
         >
           <div className="bg-blue-950 p-6 text-white text-center">
             <h1 className="text-2xl font-bold mb-2">
-              {isLogin ? 'Welcome Back' : 'Create Account'}
+              {isLogin ? "Welcome Back" : "Create Account"}
             </h1>
             <p className="text-blue-200">
-              {isLogin 
-                ? 'Sign in to access your bookshelf' 
-                : 'Sign up to start building your bookshelf'}
+              {isLogin
+                ? "Sign in to access your bookshelf"
+                : "Sign up to start building your bookshelf"}
             </p>
           </div>
-          
+
           <div className="p-6">
             {error && (
               <div className="mb-6 p-3 bg-red-50 border border-red-200 text-red-700 rounded-lg text-sm">
                 {error}
               </div>
             )}
-            
+
             <form onSubmit={handleSubmit(onSubmit)}>
               <div className="mb-4">
-                <label htmlFor="email" className="block text-sm font-medium text-gray-700 mb-1">
+                <label
+                  htmlFor="email"
+                  className="block text-sm font-medium text-gray-700 mb-1"
+                >
                   Email Address
                 </label>
                 <div className="relative">
@@ -76,24 +86,31 @@ const AuthPage = () => {
                   <input
                     id="email"
                     type="email"
-                    className={`input pl-10 ${errors.email ? 'border-red-500' : ''}`}
+                    className={`input pl-10 ${
+                      errors.email ? "border-red-500" : ""
+                    }`}
                     placeholder="you@example.com"
-                    {...register('email', { 
-                      required: 'Email is required',
+                    {...register("email", {
+                      required: "Email is required",
                       pattern: {
                         value: /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}$/i,
-                        message: 'Invalid email address'
-                      }
+                        message: "Invalid email address",
+                      },
                     })}
                   />
                 </div>
                 {errors.email && (
-                  <p className="mt-1 text-sm text-red-600">{errors.email.message}</p>
+                  <p className="mt-1 text-sm text-red-600">
+                    {errors.email.message}
+                  </p>
                 )}
               </div>
-              
+
               <div className="mb-6">
-                <label htmlFor="password" className="block text-sm font-medium text-gray-700 mb-1">
+                <label
+                  htmlFor="password"
+                  className="block text-sm font-medium text-gray-700 mb-1"
+                >
                   Password
                 </label>
                 <div className="relative">
@@ -102,15 +119,17 @@ const AuthPage = () => {
                   </div>
                   <input
                     id="password"
-                    type={showPassword ? 'text' : 'password'}
-                    className={`input pl-10 pr-10 ${errors.password ? 'border-red-500' : ''}`}
+                    type={showPassword ? "text" : "password"}
+                    className={`input pl-10 pr-10 ${
+                      errors.password ? "border-red-500" : ""
+                    }`}
                     placeholder="••••••••"
-                    {...register('password', { 
-                      required: 'Password is required',
+                    {...register("password", {
+                      required: "Password is required",
                       minLength: {
                         value: 6,
-                        message: 'Password must be at least 6 characters'
-                      }
+                        message: "Password must be at least 6 characters",
+                      },
                     })}
                   />
                   <button
@@ -122,10 +141,12 @@ const AuthPage = () => {
                   </button>
                 </div>
                 {errors.password && (
-                  <p className="mt-1 text-sm text-red-600">{errors.password.message}</p>
+                  <p className="mt-1 text-sm text-red-600">
+                    {errors.password.message}
+                  </p>
                 )}
               </div>
-              
+
               <button
                 type="submit"
                 disabled={loading}
@@ -136,21 +157,23 @@ const AuthPage = () => {
                 ) : (
                   <>
                     <User size={18} className="mr-2" />
-                    {isLogin ? 'Sign In' : 'Create Account'}
+                    {isLogin ? "Sign In" : "Create Account"}
                   </>
                 )}
               </button>
             </form>
-            
+
             <div className="mt-6 text-center">
               <p className="text-sm text-gray-600">
-                {isLogin ? 'Don\'t have an account?' : 'Already have an account?'}
+                {isLogin
+                  ? "Don't have an account?"
+                  : "Already have an account?"}
                 <button
                   type="button"
                   onClick={toggleAuthMode}
                   className="ml-1 text-blue-600 hover:text-blue-800 font-medium"
                 >
-                  {isLogin ? 'Sign up' : 'Sign in'}
+                  {isLogin ? "Sign up" : "Sign in"}
                 </button>
               </p>
             </div>
