@@ -85,7 +85,7 @@ const Header = () => {
                 className="w-8 h-8 object-contain"
               />
             </motion.div>
-            <span className="text-lg font-semibold tracking-super-tight font-display text-white">
+            <span className="text-lg font-normal tracking-super-tight font-manrope text-white">
               VectorShelf
             </span>
           </Link>
@@ -97,7 +97,7 @@ const Header = () => {
                 to="/"
                 className="flex items-center space-x-2 px-4 py-2 rounded-full transition-all duration-200 text-slate-300 hover:text-white hover:bg-black/30"
               >
-                <span className="font-medium">Home</span>
+                <span className="font-normal">Home</span>
               </Link>
               <Link
                 to="/search"
@@ -107,7 +107,7 @@ const Header = () => {
                     : "text-slate-300 hover:text-white hover:bg-black/30"
                 }`}
               >
-                <span className="font-medium">Search</span>
+                <span className="font-normal">Search</span>
               </Link>
             </div>
           </nav>
@@ -123,13 +123,13 @@ const Header = () => {
                       : "text-slate-300 hover:text-white hover:bg-black/30"
                   }`}
                 >
-                  <span className="font-medium">My Shelf</span>
+                  <span className="font-normal">My Shelf</span>
                 </Link>
                 <button
                   onClick={signOut}
                   className="flex items-center space-x-2 px-4 py-2 rounded-full text-slate-300 hover:text-white hover:bg-black/30 transition-all duration-200 group"
                 >
-                  <span className="font-medium">Sign Out</span>
+                  <span className="font-normal">Sign Out</span>
                 </button>
               </>
             ) : (
@@ -148,7 +148,7 @@ const Header = () => {
                       : "text-slate-300 hover:text-white hover:bg-black/30"
                   }`}
                 >
-                  <span className="font-medium">Sign Up</span>
+                  <span className="font-normal">Sign Up</span>
                 </Link>
               </>
             )}
@@ -180,7 +180,7 @@ const Header = () => {
                   to="/"
                   className="flex items-center space-x-3 p-3 rounded-full transition-all duration-200 text-slate-300 hover:text-white hover:bg-black/30"
                 >
-                  <span className="font-medium">Home</span>
+                  <span className="font-normal">Home</span>
                 </Link>
                 <Link
                   to="/search"
@@ -190,7 +190,7 @@ const Header = () => {
                       : "text-slate-300 hover:text-white hover:bg-black/30"
                   }`}
                 >
-                  <span className="font-medium">Search</span>
+                  <span className="font-normal">Search</span>
                 </Link>
                 {user ? (
                   <>
@@ -202,13 +202,13 @@ const Header = () => {
                           : "text-slate-300 hover:bg-black/30 hover:text-white"
                       }`}
                     >
-                      <span className="font-medium">My Shelf</span>
+                      <span className="font-normal">My Shelf</span>
                     </Link>
                     <button
                       onClick={signOut}
                       className="flex items-center space-x-3 p-3 rounded-full text-slate-300 hover:bg-black/30 hover:text-white transition-all duration-200 w-full text-left"
                     >
-                      <span className="font-medium">Sign Out</span>
+                      <span className="font-normal">Sign Out</span>
                     </button>
                   </>
                 ) : (
@@ -227,7 +227,7 @@ const Header = () => {
                           : "text-slate-300 hover:text-white hover:bg-black/30"
                       }`}
                     >
-                      <span className="font-medium">Sign Up</span>
+                      <span className="font-normal">Sign Up</span>
                     </Link>
                   </>
                 )}

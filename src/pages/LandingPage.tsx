@@ -36,13 +36,13 @@ const LandingPage = () => {
   ];
 
   return (
-    <div className="relative min-h-screen bg-[radial-gradient(120%_120%_at_30%_-10%,#4A5569_0%,#1A1F2E_25%,#000000_65%)] text-white overflow-hidden">
+    <div className="relative min-h-screen bg-[radial-gradient(100%_100%_at_85%_-15%,#4A5569_0%,#1A1F2E_25%,#000000_65%)] text-white overflow-hidden">
       {/* Noise texture overlay */}
       <div className="absolute inset-0 bg-[url('/noise.png')] opacity-[0.05] mix-blend-overlay pointer-events-none"></div>
 
       {/* Gradient overlays for depth */}
       <div className="absolute inset-0 bg-gradient-to-b from-transparent via-black/40 to-black pointer-events-none"></div>
-      <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_30%_-10%,rgba(74,85,105,0.15)_0%,rgba(0,0,0,0.4)_100%)] pointer-events-none"></div>
+      <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_85%_-15%,rgba(74,85,105,0.15)_0%,rgba(0,0,0,0.4)_100%)] pointer-events-none"></div>
 
       {/* Hero Section */}
       <div
@@ -67,7 +67,7 @@ const LandingPage = () => {
               transition={{ duration: 0.8 }}
               className="mb-6"
             >
-              <span className="inline-flex items-center px-4 py-1.5 rounded-full text-sm font-medium tracking-wide bg-slate-800/30 text-blue-300 backdrop-blur-md border border-slate-700/30 mb-4">
+              <span className="inline-flex items-center px-4 py-1.5 rounded-full text-sm font-normal tracking-wide bg-slate-800/30 text-blue-300 backdrop-blur-md border border-slate-700/30 mb-4">
                 <Sparkles className="w-4 h-4 mr-2" />
                 Discover Your Next Great Read
               </span>
@@ -77,7 +77,7 @@ const LandingPage = () => {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, delay: 0.2 }}
-              className="text-5xl md:text-7xl font-bold font-display mb-8 bg-clip-text text-transparent bg-gradient-to-r from-blue-200 via-indigo-300 to-purple-200 leading-[1.3] md:leading-[1.2] py-1 tracking-super-tight"
+              className="text-5xl md:text-7xl font-bold font-display mb-8 bg-clip-text text-transparent bg-gradient-to-r from-blue-200 via-purple-200 to-green-200 leading-[1.3] md:leading-[1.2] py-1 tracking-super-tight"
             >
               Your Books, Reimagined
             </motion.h1>
@@ -86,7 +86,7 @@ const LandingPage = () => {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, delay: 0.4 }}
-              className="text-xl text-slate-300/90 mb-8 max-w-2xl mx-auto font-light tracking-wide leading-relaxed"
+              className="text-xl text-slate-300/90 mb-8 max-w-2xl mx-auto font-light tracking-wide leading-relaxed font-manrope"
             >
               Transform your reading experience with VectorShelf. Discover,
               collect, and organize your books in a beautiful digital space
@@ -101,14 +101,14 @@ const LandingPage = () => {
             >
               <Link
                 to="/search"
-                className="inline-flex items-center px-6 py-3 rounded-full bg-gradient-to-r from-black/90 to-slate-900/90 text-white font-medium hover:from-black hover:to-slate-900 transition-all duration-300 shadow-lg shadow-black/20 hover:shadow-slate-500/20 hover:scale-[1.02] backdrop-blur-sm"
+                className="inline-flex items-center px-6 py-3 rounded-full bg-gradient-to-r from-black/90 to-slate-900/90 text-white font-normal hover:from-black hover:to-slate-900 transition-all duration-300 shadow-lg shadow-black/20 hover:shadow-slate-500/20 hover:scale-[1.02] backdrop-blur-sm"
               >
                 Start Exploring
                 <ArrowRight className="ml-2 w-5 h-5" />
               </Link>
               <Link
                 to="/auth"
-                className="inline-flex items-center px-6 py-3 rounded-full bg-slate-800/30 backdrop-blur-md text-white font-medium hover:bg-slate-800/40 transition-all duration-200 hover:scale-[1.02]"
+                className="inline-flex items-center px-6 py-3 rounded-full bg-slate-800/30 backdrop-blur-md text-white font-normal hover:bg-slate-800/40 transition-all duration-200 hover:scale-[1.02]"
               >
                 Create Account
               </Link>
@@ -140,7 +140,7 @@ const LandingPage = () => {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.8, delay: 0.2 }}
-                className="block text-transparent bg-clip-text bg-gradient-to-r from-blue-200 via-indigo-300 to-purple-200 mt-1 py-1"
+                className="block text-transparent bg-clip-text bg-gradient-to-r from-blue-200 via-purple-200 to-green-200 mt-1 py-1"
               >
                 For Your Reading Journey
               </motion.span>
@@ -150,7 +150,7 @@ const LandingPage = () => {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.8, delay: 0.3 }}
-              className="text-xl text-slate-400/90 max-w-2xl mx-auto font-light tracking-wide leading-relaxed"
+              className="text-xl text-slate-400/90 max-w-2xl mx-auto font-light tracking-wide leading-relaxed font-manrope"
             >
               Discover powerful features designed to enhance your reading
               experience and book collection management.
@@ -175,7 +175,7 @@ const LandingPage = () => {
                   <h3 className="text-xl font-bold font-display mb-4 tracking-super-tight">
                     {feature.title}
                   </h3>
-                  <p className="text-slate-400/90 flex-grow font-light tracking-wide leading-relaxed">
+                  <p className="text-slate-400/90 flex-grow font-light tracking-wide leading-relaxed font-manrope">
                     {feature.description}
                   </p>
                 </div>
@@ -220,7 +220,7 @@ const LandingPage = () => {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.8, delay: 0.2 }}
-                className="block text-transparent bg-clip-text bg-gradient-to-r from-blue-200 via-indigo-300 to-purple-200 mt-1 py-1"
+                className="block text-transparent bg-clip-text bg-gradient-to-r from-blue-200 via-purple-200 to-green-200 mt-1 py-1"
               >
                 Reading Experience?
               </motion.span>
@@ -230,7 +230,7 @@ const LandingPage = () => {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.8, delay: 0.3 }}
-              className="text-xl text-slate-300/90 mb-8 font-light tracking-wide leading-relaxed"
+              className="text-xl text-slate-300/90 mb-8 font-light tracking-wide leading-relaxed font-manrope"
             >
               Join thousands of readers who have already discovered the future
               of digital bookshelves.
@@ -243,7 +243,7 @@ const LandingPage = () => {
             >
               <Link
                 to="/auth"
-                className="inline-flex items-center px-8 py-4 rounded-full bg-gradient-to-r from-black/90 to-slate-900/90 text-white font-medium tracking-wide hover:from-black hover:to-slate-900 transition-all duration-300 shadow-lg shadow-black/20 hover:shadow-slate-500/20 hover:scale-[1.02] backdrop-blur-sm"
+                className="inline-flex items-center px-8 py-4 rounded-full bg-gradient-to-r from-black/90 to-slate-900/90 text-white font-normal tracking-wide hover:from-black hover:to-slate-900 transition-all duration-300 shadow-lg shadow-black/20 hover:shadow-slate-500/20 hover:scale-[1.02] backdrop-blur-sm"
               >
                 Get Started Now
                 <ArrowRight className="ml-2 w-5 h-5" />
