@@ -101,7 +101,7 @@ const LandingPage = () => {
             >
               <Link
                 to="/search"
-                className="inline-flex items-center px-6 py-3 rounded-full bg-gradient-to-r from-indigo-500/90 to-purple-500/90 text-white font-medium hover:opacity-90 transition-all duration-200 shadow-lg hover:shadow-indigo-500/25 hover:scale-[1.02] backdrop-blur-sm"
+                className="inline-flex items-center px-6 py-3 rounded-full bg-gradient-to-r from-black/90 to-slate-900/90 text-white font-medium hover:from-black hover:to-slate-900 transition-all duration-300 shadow-lg shadow-black/20 hover:shadow-slate-500/20 hover:scale-[1.02] backdrop-blur-sm"
               >
                 Start Exploring
                 <ArrowRight className="ml-2 w-5 h-5" />
@@ -243,7 +243,7 @@ const LandingPage = () => {
             >
               <Link
                 to="/auth"
-                className="inline-flex items-center px-8 py-4 rounded-full bg-gradient-to-r from-indigo-500/90 to-purple-500/90 text-white font-medium tracking-wide hover:opacity-90 transition-all duration-200 shadow-lg hover:shadow-indigo-500/25 hover:scale-[1.02] backdrop-blur-sm"
+                className="inline-flex items-center px-8 py-4 rounded-full bg-gradient-to-r from-black/90 to-slate-900/90 text-white font-medium tracking-wide hover:from-black hover:to-slate-900 transition-all duration-300 shadow-lg shadow-black/20 hover:shadow-slate-500/20 hover:scale-[1.02] backdrop-blur-sm"
               >
                 Get Started Now
                 <ArrowRight className="ml-2 w-5 h-5" />

@@ -112,7 +112,7 @@ const Header = () => {
             </div>
           </nav>
 
-          <div className="hidden md:flex items-center space-x-2">
+          <div className="hidden md:flex items-center">
             {user ? (
               <>
                 <Link
