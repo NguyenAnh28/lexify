@@ -29,24 +29,23 @@ const SearchBar = ({ onSearch, initialQuery = "" }: SearchBarProps) => {
             value={query}
             onChange={(e) => setQuery(e.target.value)}
             placeholder="Search by title, author, or topic..."
-            className="w-full bg-black/30 backdrop-blur-sm border border-slate-700/30 rounded-full 
-                     pl-12 pr-28 py-4 text-base text-white placeholder:text-slate-400
-                     focus:outline-none focus:border-slate-500/50 focus:bg-black/40
-                     hover:border-slate-600/50 hover:bg-black/35
+            className="w-full bg-black/30 backdrop-blur-sm border border-white/20 rounded-full 
+                     pl-12 pr-28 py-4 text-base text-white placeholder:text-white/50
+                     focus:outline-none focus:border-white/30 focus:bg-black/40
+                     hover:border-white/30 hover:bg-black/35
                      transition-all duration-300
                      outline-none ring-0 focus:ring-0"
           />
           <div className="absolute inset-y-0 left-0 pl-5 flex items-center pointer-events-none">
-            <Search size={18} className="text-slate-400" />
+            <Search size={18} className="text-white/70" />
           </div>
           <button
             type="submit"
             className="absolute right-2 top-1/2 -translate-y-1/2
-                     bg-gradient-to-r from-slate-800/90 to-slate-900/90 
-                     text-white/90 hover:text-white font-normal rounded-full px-6 py-2.5
+                     bg-[radial-gradient(120%_120%_at_85%_85%,#8B3251_0%,#4A1F3D_25%,#000000_65%)]
+                     text-white font-normal rounded-full px-6 py-2.5
                      transition-all duration-300 backdrop-blur-sm
-                     border border-slate-700/30 hover:border-slate-600/50
-                     shadow-sm hover:shadow-[0_0_15px_rgba(148,163,184,0.15)]"
+                     shadow-sm hover:shadow-[0_0_15px_rgba(255,255,255,0.1)]"
           >
             Search
           </button>

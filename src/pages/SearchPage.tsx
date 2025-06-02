@@ -68,7 +68,7 @@ const SearchPage = () => {
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.8 }}
-                className="text-4xl md:text-5xl font-bold font-display mb-6 gradient-text"
+                className="text-4xl md:text-5xl font-bold font-display mb-6 bg-clip-text text-transparent bg-gradient-to-r from-blue-200 from-5% via-white via-30% via-blue-200 via-50% via-white via-70% to-indigo-200 to-95%"
               >
                 Discover Your Next Read
               </motion.h1>
