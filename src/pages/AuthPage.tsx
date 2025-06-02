@@ -5,6 +5,7 @@ import { Lock, Mail, User, Eye, EyeOff } from "lucide-react";
 import { motion } from "framer-motion";
 import LoadingSpinner from "../components/ui/LoadingSpinner";
 import { useSearchParams } from "react-router-dom";
+import logo from "../assets/lexify-logo.svg";
 
 interface AuthFormInputs {
   email: string;
@@ -45,7 +46,7 @@ const AuthPage = () => {
   };
 
   return (
-    <div className="min-h-[calc(100vh-theme(space.32))] relative bg-[radial-gradient(100%_100%_at_15%_50%,#4A5569_0%,#1A1F2E_25%,#000000_65%)] text-white">
+    <div className="min-h-[calc(100vh-theme(space.32))] relative bg-[radial-gradient(120%_120%_at_10%_90%,#2A4A35_0%,#1A2E1F_25%,#000000_65%)] text-white">
       {/* Noise texture overlay */}
       <div className="absolute inset-0 bg-[url('/noise.png')] opacity-[0.05] mix-blend-overlay pointer-events-none"></div>
 
@@ -58,6 +59,7 @@ const AuthPage = () => {
             className="glass-panel p-8"
           >
             <div className="text-center mb-8">
+              <img src={logo} alt="Lexify" className="h-12 mx-auto mb-6" />
               <h1 className="text-3xl font-bold mb-3 gradient-text">
                 {isLogin ? "Welcome Back" : "Join Lexify"}
               </h1>
@@ -69,7 +71,7 @@ const AuthPage = () => {
             </div>
 
             {error && (
-              <div className="mb-6 p-4 bg-red-500/10 border border-red-500/20 text-red-400 rounded-xl text-sm">
+              <div className="mb-6 p-4 bg-red-500/10 border border-red-500/20 text-red-400 rounded-full text-sm">
                 {error}
               </div>
             )}
@@ -89,7 +91,7 @@ const AuthPage = () => {
                   <input
                     id="email"
                     type="email"
-                    className={`glass-input w-full pl-11 ${
+                    className={`glass-input w-full pl-11 rounded-full ${
                       errors.email ? "border-red-500/50" : ""
                     }`}
                     placeholder="you@example.com"
@@ -123,7 +125,7 @@ const AuthPage = () => {
                   <input
                     id="password"
                     type={showPassword ? "text" : "password"}
-                    className={`glass-input w-full pl-11 pr-11 ${
+                    className={`glass-input w-full pl-11 pr-11 rounded-full ${
                       errors.password ? "border-red-500/50" : ""
                     }`}
                     placeholder="••••••••"
@@ -153,7 +155,7 @@ const AuthPage = () => {
               <button
                 type="submit"
                 disabled={loading}
-                className="glass-button w-full flex justify-center items-center py-3"
+                className="glass-button w-full flex justify-center items-center py-3 rounded-full"
               >
                 {loading ? (
                   <LoadingSpinner size="small" />

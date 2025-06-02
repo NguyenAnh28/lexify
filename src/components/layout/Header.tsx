@@ -47,7 +47,9 @@ const Header = () => {
       <div
         className={`relative w-[98%] max-w-7xl rounded-full transition-all duration-500 ${
           scrolled
-            ? "bg-gradient-to-r from-black/40 via-slate-900/40 to-black/40 backdrop-blur-lg shadow-lg shadow-black/10"
+            ? isActive("/search")
+              ? "bg-gradient-to-r from-black/40 via-[#2E1F4A]/40 to-black/40 backdrop-blur-lg shadow-lg shadow-black/10"
+              : "bg-gradient-to-r from-black/40 via-slate-900/40 to-black/40 backdrop-blur-lg shadow-lg shadow-black/10"
             : "bg-transparent"
         }`}
       >
@@ -115,7 +117,11 @@ const Header = () => {
               <>
                 <Link
                   to="/auth?mode=signin"
-                  className="flex items-center px-5 py-2 rounded-full bg-gradient-to-r from-black/90 to-slate-900/90 text-white text-sm hover:from-black hover:to-slate-900 transition-all duration-300 shadow-lg shadow-black/20 hover:shadow-slate-500/20 hover:scale-[1.02] backdrop-blur-sm"
+                  className={`flex items-center px-5 py-2 rounded-full text-white text-sm transition-all duration-300 shadow-lg shadow-black/20 hover:shadow-slate-500/20 hover:scale-[1.02] backdrop-blur-sm ${
+                    isActive("/search")
+                      ? "bg-[radial-gradient(80%_100%_at_100%_50%,#4A1F3D_0%,#2D1326_25%,#1A0D17_45%,#000000_70%)]"
+                      : "bg-gradient-to-r from-black/90 to-slate-900/90 hover:from-black hover:to-slate-900"
+                  }`}
                 >
                   <span>Log In</span>
                 </Link>
@@ -187,7 +193,11 @@ const Header = () => {
                   <>
                     <Link
                       to="/auth?mode=signin"
-                      className="flex items-center space-x-3 p-3 rounded-full bg-gradient-to-r from-black/90 to-slate-900/90 text-white font-medium hover:from-black hover:to-slate-900 transition-all duration-300 shadow-lg shadow-black/20 hover:shadow-slate-500/20 hover:scale-[1.02] backdrop-blur-sm"
+                      className={`flex items-center space-x-3 p-3 rounded-full text-white font-medium transition-all duration-300 shadow-lg shadow-black/20 hover:shadow-slate-500/20 hover:scale-[1.02] backdrop-blur-sm ${
+                        isActive("/search")
+                          ? "bg-[radial-gradient(80%_100%_at_100%_50%,#4A1F3D_0%,#2D1326_25%,#1A0D17_45%,#000000_70%)]"
+                          : "bg-gradient-to-r from-black/90 to-slate-900/90 hover:from-black hover:to-slate-900"
+                      }`}
                     >
                       <span>Log In</span>
                     </Link>
