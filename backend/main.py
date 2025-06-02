@@ -42,6 +42,7 @@ def read_root():
 @app.get("/api/books/search")
 async def search_books(q: str, maxResults: int = 20):
     api_key = os.getenv("GOOGLE_BOOKS_API_KEY")
+    print("Google API key in environment:", api_key)
     async with httpx.AsyncClient() as client:
         try:
             params = {
