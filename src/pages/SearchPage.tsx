@@ -51,12 +51,12 @@ const SearchPage = () => {
   }, []);
 
   return (
-    <div className="min-h-[calc(100vh-theme(space.32))] relative bg-[radial-gradient(100%_100%_at_15%_50%,#4A5569_0%,#1A1F2E_25%,#000000_65%)] text-white">
+    <div className="min-h-[calc(100vh-theme(space.32))] relative bg-[radial-gradient(120%_120%_at_85%_85%,#8B3251_0%,#4A1F3D_25%,#000000_65%)] text-white">
       {/* Noise texture overlay */}
       <div className="absolute inset-0 bg-[url('/noise.png')] opacity-[0.05] mix-blend-overlay pointer-events-none"></div>
 
       <div className="container-custom relative min-h-[calc(100vh-theme(space.32))] flex flex-col">
-        <div className="flex-1 flex flex-col items-center justify-center pt-60 pb-20">
+        <div className="flex-1 flex flex-col items-center justify-center pt-60 pb-40">
           <motion.div
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
@@ -123,23 +123,7 @@ const SearchPage = () => {
                 message="We couldn't find any books matching your search. Try different keywords or browse popular books."
                 icon={<BookSearch size={48} className="text-slate-400" />}
               />
-            ) : (
-              <div className="text-center py-20">
-                <motion.div
-                  initial={{ opacity: 0, scale: 0.9 }}
-                  animate={{ opacity: 1, scale: 1 }}
-                  transition={{ duration: 0.5 }}
-                >
-                  <BookSearch
-                    size={64}
-                    className="mx-auto text-slate-400/50 mb-4"
-                  />
-                  <p className="text-slate-400/90 text-lg font-light">
-                    Enter a search term above to find books
-                  </p>
-                </motion.div>
-              </div>
-            )}
+            ) : null}
           </motion.div>
         </div>
       </div>
