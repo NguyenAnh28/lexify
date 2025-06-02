@@ -33,7 +33,8 @@ const SearchBar = ({ onSearch, initialQuery = "" }: SearchBarProps) => {
                      pl-12 pr-28 py-4 text-base text-white placeholder:text-slate-400
                      focus:outline-none focus:border-slate-500/50 focus:bg-black/40
                      hover:border-slate-600/50 hover:bg-black/35
-                     transition-all duration-300"
+                     transition-all duration-300
+                     outline-none ring-0 focus:ring-0"
           />
           <div className="absolute inset-y-0 left-0 pl-5 flex items-center pointer-events-none">
             <Search size={18} className="text-slate-400" />
