@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="512" height="512" viewBox="0 0 512 512" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <!-- Black background -->
+  <rect width="512" height="512" fill="black"/>
+  
+  <!-- Gradient definitions -->
+  <defs>
+    <linearGradient id="letterGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#FF69B4"/>
+      <stop offset="25%" style="stop-color:#4169E1"/>
+      <stop offset="50%" style="stop-color:#FF8C00"/>
+      <stop offset="75%" style="stop-color:#40E0D0"/>
+      <stop offset="100%" style="stop-color:#FF69B4"/>
+    </linearGradient>
+  </defs>
+  
+  <!-- Abstract L shape with rounded corners and gradient -->
+  <path 
+    d="M 160 140 
+       L 160 380 
+       Q 160 400 180 400 
+       L 360 400 
+       Q 380 400 380 380 
+       L 380 360 
+       Q 380 340 360 340
+       L 240 340
+       Q 220 340 220 320
+       L 220 140
+       Q 220 120 200 120
+       L 180 120
+       Q 160 120 160 140
+       Z"
+    fill="url(#letterGradient)"
+  />
+</svg> 

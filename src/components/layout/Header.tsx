@@ -3,7 +3,7 @@ import { useState, useEffect } from "react";
 import { useAuth } from "../../contexts/AuthContext";
 import { Menu, X, LogOut, Search, LogIn, Home } from "lucide-react";
 import { AnimatePresence } from "framer-motion";
-import logo from "../../assets/logo.png";
+import logo from "../../assets/lexify-logo.svg";
 
 const Header = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -52,15 +52,15 @@ const Header = () => {
         }`}
       >
         <div className="container mx-auto px-6 py-2 flex justify-between items-center">
-          <Link to="/" className="flex items-center space-x-3 group">
-            <div className="flex items-center justify-center w-10 h-10 group-hover:scale-105 transition-all duration-200">
+          <Link to="/" className="flex items-center space-x-2 group">
+            <div className="flex items-center justify-center w-8 h-8 group-hover:scale-105 transition-all duration-200">
               <img
                 src={logo}
                 alt="Lexify Logo"
                 className="w-8 h-8 object-contain"
               />
             </div>
-            <span className="text-base font-normal tracking-super-tight font-manrope text-white">
+            <span className="text-lg font-medium tracking-tight font-manrope text-white group-hover:[text-shadow:0_0_6px_rgba(255,255,255,0.5)] transition-all duration-200">
               Lexify
             </span>
           </Link>
