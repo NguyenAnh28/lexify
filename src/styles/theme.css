@@ -1,0 +1,46 @@
+@layer base {
+  :root {
+    --gradient-primary: linear-gradient(to right, #4A5569 0%, #1A1F2E 25%, #000000 65%);
+    --gradient-button: linear-gradient(to right, rgba(0, 0, 0, 0.9), rgba(15, 23, 42, 0.9));
+    --color-text-primary: #ffffff;
+    --color-text-secondary: rgba(148, 163, 184, 0.9);
+    --color-border: rgba(148, 163, 184, 0.2);
+    --shadow-glow: 0 0 6px rgba(255, 255, 255, 0.5);
+  }
+}
+
+@layer components {
+  .gradient-text {
+    @apply bg-clip-text text-transparent bg-gradient-to-r from-blue-200 via-purple-200 to-green-200;
+  }
+
+  .glass-panel {
+    @apply bg-black/40 backdrop-blur-md border border-slate-800/40 rounded-2xl transition-all duration-300;
+  }
+
+  .glass-button {
+    @apply px-6 py-3 rounded-full bg-gradient-to-r from-black/90 to-slate-900/90 text-white text-base font-normal 
+           hover:from-black hover:to-slate-900 transition-all duration-300 shadow-lg shadow-black/20 
+           hover:shadow-slate-500/20 hover:scale-[1.02] backdrop-blur-sm;
+  }
+
+  .glass-input {
+    @apply bg-black/20 border border-slate-700/30 rounded-xl px-4 py-3 text-white placeholder-slate-400
+           focus:outline-none focus:border-slate-600/50 transition-all duration-200;
+  }
+
+  .hover-glow {
+    @apply hover:[text-shadow:var(--shadow-glow)] transition-all duration-200;
+  }
+}
+
+.animate-gradient {
+  background-size: 200% 200%;
+  animation: gradient 8s linear infinite;
+}
+
+@keyframes gradient {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+} 

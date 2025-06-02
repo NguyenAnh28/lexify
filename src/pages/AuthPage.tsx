@@ -45,49 +45,52 @@ const AuthPage = () => {
   };
 
   return (
-    <div className="container-custom py-12 md:py-20">
-      <div className="max-w-md mx-auto">
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.5 }}
-          className="bg-white rounded-xl shadow-lg overflow-hidden"
-        >
-          <div className="bg-blue-950 p-6 text-white text-center">
-            <h1 className="text-2xl font-bold mb-2">
-              {isLogin ? "Welcome Back" : "Create Account"}
-            </h1>
-            <p className="text-blue-200">
-              {isLogin
-                ? "Sign in to access your bookshelf"
-                : "Sign up to start building your bookshelf"}
-            </p>
-          </div>
+    <div className="min-h-[calc(100vh-theme(space.32))] relative bg-[radial-gradient(100%_100%_at_15%_50%,#4A5569_0%,#1A1F2E_25%,#000000_65%)] text-white">
+      {/* Noise texture overlay */}
+      <div className="absolute inset-0 bg-[url('/noise.png')] opacity-[0.05] mix-blend-overlay pointer-events-none"></div>
 
-          <div className="p-6">
+      <div className="container-custom relative min-h-screen flex items-center justify-center py-20">
+        <div className="w-full max-w-md">
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.5 }}
+            className="glass-panel p-8"
+          >
+            <div className="text-center mb-8">
+              <h1 className="text-3xl font-bold mb-3 gradient-text">
+                {isLogin ? "Welcome Back" : "Join Lexify"}
+              </h1>
+              <p className="text-slate-300/90">
+                {isLogin
+                  ? "Sign in to access your digital bookshelf"
+                  : "Create an account to start your reading journey"}
+              </p>
+            </div>
+
             {error && (
-              <div className="mb-6 p-3 bg-red-50 border border-red-200 text-red-700 rounded-lg text-sm">
+              <div className="mb-6 p-4 bg-red-500/10 border border-red-500/20 text-red-400 rounded-xl text-sm">
                 {error}
               </div>
             )}
 
-            <form onSubmit={handleSubmit(onSubmit)}>
-              <div className="mb-4">
+            <form onSubmit={handleSubmit(onSubmit)} className="space-y-5">
+              <div>
                 <label
                   htmlFor="email"
-                  className="block text-sm font-medium text-gray-700 mb-1"
+                  className="block text-sm font-medium text-slate-300 mb-2"
                 >
                   Email Address
                 </label>
                 <div className="relative">
-                  <div className="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
-                    <Mail size={18} className="text-gray-400" />
+                  <div className="absolute inset-y-0 left-0 pl-4 flex items-center pointer-events-none">
+                    <Mail size={18} className="text-slate-400" />
                   </div>
                   <input
                     id="email"
                     type="email"
-                    className={`input pl-10 ${
-                      errors.email ? "border-red-500" : ""
+                    className={`glass-input w-full pl-11 ${
+                      errors.email ? "border-red-500/50" : ""
                     }`}
                     placeholder="you@example.com"
                     {...register("email", {
@@ -100,28 +103,28 @@ const AuthPage = () => {
                   />
                 </div>
                 {errors.email && (
-                  <p className="mt-1 text-sm text-red-600">
+                  <p className="mt-2 text-sm text-red-400">
                     {errors.email.message}
                   </p>
                 )}
               </div>
 
-              <div className="mb-6">
+              <div>
                 <label
                   htmlFor="password"
-                  className="block text-sm font-medium text-gray-700 mb-1"
+                  className="block text-sm font-medium text-slate-300 mb-2"
                 >
                   Password
                 </label>
                 <div className="relative">
-                  <div className="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
-                    <Lock size={18} className="text-gray-400" />
+                  <div className="absolute inset-y-0 left-0 pl-4 flex items-center pointer-events-none">
+                    <Lock size={18} className="text-slate-400" />
                   </div>
                   <input
                     id="password"
                     type={showPassword ? "text" : "password"}
-                    className={`input pl-10 pr-10 ${
-                      errors.password ? "border-red-500" : ""
+                    className={`glass-input w-full pl-11 pr-11 ${
+                      errors.password ? "border-red-500/50" : ""
                     }`}
                     placeholder="••••••••"
                     {...register("password", {
@@ -135,13 +138,13 @@ const AuthPage = () => {
                   <button
                     type="button"
                     onClick={togglePasswordVisibility}
-                    className="absolute inset-y-0 right-0 pr-3 flex items-center text-gray-400 hover:text-gray-600"
+                    className="absolute inset-y-0 right-0 pr-4 flex items-center text-slate-400 hover:text-slate-300 transition-colors"
                   >
                     {showPassword ? <EyeOff size={18} /> : <Eye size={18} />}
                   </button>
                 </div>
                 {errors.password && (
-                  <p className="mt-1 text-sm text-red-600">
+                  <p className="mt-2 text-sm text-red-400">
                     {errors.password.message}
                   </p>
                 )}
@@ -150,10 +153,10 @@ const AuthPage = () => {
               <button
                 type="submit"
                 disabled={loading}
-                className="w-full btn btn-primary py-3 flex justify-center items-center"
+                className="glass-button w-full flex justify-center items-center py-3"
               >
                 {loading ? (
-                  <LoadingSpinner size="small" color="blue" />
+                  <LoadingSpinner size="small" />
                 ) : (
                   <>
                     <User size={18} className="mr-2" />
@@ -164,21 +167,21 @@ const AuthPage = () => {
             </form>
 
             <div className="mt-6 text-center">
-              <p className="text-sm text-gray-600">
+              <p className="text-slate-300/90">
                 {isLogin
                   ? "Don't have an account?"
                   : "Already have an account?"}
                 <button
                   type="button"
                   onClick={toggleAuthMode}
-                  className="ml-1 text-blue-600 hover:text-blue-800 font-medium"
+                  className="ml-2 text-white hover-glow font-medium"
                 >
                   {isLogin ? "Sign up" : "Sign in"}
                 </button>
               </p>
             </div>
-          </div>
-        </motion.div>
+          </motion.div>
+        </div>
       </div>
     </div>
   );

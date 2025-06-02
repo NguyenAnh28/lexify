@@ -1,45 +1,39 @@
-import { BookItem } from '../../lib/api';
-import BookCard from './BookCard';
-import { motion } from 'framer-motion';
+import { motion } from "framer-motion";
+import { BookItem } from "../../lib/api";
+import BookCard from "./BookCard";
 
 interface BookListProps {
   books: BookItem[];
   title?: string;
-  emptyMessage?: string;
+  onAddToShelf?: (book: BookItem) => void;
 }
 
-const BookList: React.FC<BookListProps> = ({ 
-  books, 
-  title = 'Books', 
-  emptyMessage = 'No books found. Try a different search.' 
-}) => {
+const BookList = ({ books, title, onAddToShelf }: BookListProps) => {
   return (
-    <div className="w-full">
+    <div>
       {title && (
-        <motion.h2 
-          initial={{ opacity: 0, y: -10 }}
+        <motion.h2
+          initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
-          className="text-2xl font-bold mb-6 text-blue-950"
+          transition={{ duration: 0.5 }}
+          className="text-2xl font-bold text-white mb-8"
         >
           {title}
         </motion.h2>
       )}
-      
-      {books.length > 0 ? (
-        <div className="grid grid-cols-1 gap-6">
-          {books.map((book, index) => (
-            <BookCard key={book.id} book={book} index={index} />
-          ))}
-        </div>
-      ) : (
-        <motion.div 
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          className="text-center py-12"
-        >
-          <p className="text-slate-500 text-lg">{emptyMessage}</p>
-        </motion.div>
-      )}
+
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
+        {books.map((book, index) => (
+          <motion.div
+            key={book.id}
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.5, delay: index * 0.1 }}
+          >
+            <BookCard book={book} onAddToShelf={onAddToShelf} />
+          </motion.div>
+        ))}
+      </div>
     </div>
   );
 };

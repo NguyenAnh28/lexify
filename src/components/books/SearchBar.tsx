@@ -1,62 +1,51 @@
-import { useState } from 'react';
-import { Search, X } from 'lucide-react';
-import { motion } from 'framer-motion';
+import { useState } from "react";
+import { Search } from "lucide-react";
+import { motion } from "framer-motion";
 
 interface SearchBarProps {
   onSearch: (query: string) => void;
   initialQuery?: string;
 }
 
-const SearchBar: React.FC<SearchBarProps> = ({ onSearch, initialQuery = '' }) => {
+const SearchBar = ({ onSearch, initialQuery = "" }: SearchBarProps) => {
   const [query, setQuery] = useState(initialQuery);
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-    if (query.trim()) {
-      onSearch(query);
-    }
-  };
-
-  const clearSearch = () => {
-    setQuery('');
+    onSearch(query);
   };
 
   return (
     <motion.div
-      initial={{ opacity: 0, y: -20 }}
+      initial={{ opacity: 0, y: 20 }}
       animate={{ opacity: 1, y: 0 }}
-      transition={{ duration: 0.3 }}
-      className="w-full max-w-3xl mx-auto mb-8"
+      transition={{ duration: 0.5, delay: 0.3 }}
+      className="max-w-2xl mx-auto mb-12"
     >
       <form onSubmit={handleSubmit} className="relative">
-        <div className="relative flex items-center">
+        <div className="relative">
           <input
             type="text"
             value={query}
             onChange={(e) => setQuery(e.target.value)}
-            placeholder="Search for books, authors, topics..."
-            className="input pr-24 pl-12 py-3 shadow-sm text-lg"
-            aria-label="Search for books"
+            placeholder="Search by title, author, or topic..."
+            className="w-full bg-black/30 backdrop-blur-sm border border-slate-700/30 rounded-full 
+                     pl-12 pr-28 py-4 text-base text-white placeholder:text-slate-400
+                     focus:outline-none focus:border-slate-500/50 focus:bg-black/40
+                     hover:border-slate-600/50 hover:bg-black/35
+                     transition-all duration-300"
           />
-          <div className="absolute left-4 text-slate-400">
-            <Search size={20} />
+          <div className="absolute inset-y-0 left-0 pl-5 flex items-center pointer-events-none">
+            <Search size={18} className="text-slate-400" />
           </div>
-          
-          {query && (
-            <button
-              type="button"
-              onClick={clearSearch}
-              className="absolute right-20 text-slate-400 hover:text-slate-600 transition-colors"
-              aria-label="Clear search"
-            >
-              <X size={20} />
-            </button>
-          )}
-          
           <button
             type="submit"
-            className="absolute right-3 btn btn-primary py-1.5 px-4"
-            disabled={!query.trim()}
+            className="absolute right-2 top-1/2 -translate-y-1/2
+                     bg-gradient-to-r from-slate-800/90 to-slate-900/90 
+                     text-white/90 hover:text-white font-normal rounded-full px-6 py-2.5
+                     transition-all duration-300 backdrop-blur-sm
+                     border border-slate-700/30 hover:border-slate-600/50
+                     shadow-sm hover:shadow-[0_0_15px_rgba(148,163,184,0.15)]"
           >
             Search
           </button>
