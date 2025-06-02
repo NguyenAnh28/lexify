@@ -41,6 +41,7 @@ def read_root():
 # Book search endpoint
 @app.get("/api/books/search")
 async def search_books(q: str, maxResults: int = 20):
+    api_key = os.getenv("GOOGLE_BOOKS_API_KEY")
     async with httpx.AsyncClient() as client:
         try:
             params = {
@@ -49,6 +50,8 @@ async def search_books(q: str, maxResults: int = 20):
                 "printType": "books",
                 "projection": "full"
             }
+            if api_key:
+                params["key"] = api_key
             response = await client.get(GOOGLE_BOOKS_API_URL, params=params)
             response.raise_for_status()
             return response.json()
