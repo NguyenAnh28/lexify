@@ -14,9 +14,6 @@ Keep track of what you're reading, want to read, or have finished.
 ⚡ Seamless Experience
 Simple, fast, and beautiful — designed to make book discovery and tracking enjoyable.
 
-🧠 Smart Keyword Matching (v1 Model)
-Our early-stage AI model extracts keywords to recommend relevant genres and books.
-
 Why VectorShelf?
 Unlike traditional search engines, VectorShelf focuses on your personal reading journey, helping you discover books in a more organic, meaningful way — not just through keywords, but through connection, curation, and growth.
 
